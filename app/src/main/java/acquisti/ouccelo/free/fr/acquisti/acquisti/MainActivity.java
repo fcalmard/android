@@ -560,15 +560,15 @@ public class MainActivity extends AppCompatActivity
                     long lid= param.getListeEnCours();
 
                     pdts.close();
-/*
-                    if(art.getIdliste()==0)
+
+                    /*
+                    on enleve l'article de la liste
+                     */
+                    if(art.getIdliste()!=0)
                     {
-                        l=1;
-                    }else
-                    {
-                        l=0;
+                        lid=0;
                     }
-                    */
+
 
                     majArticle(datasourceart,art,modeEnCours,lid);
 
@@ -636,7 +636,14 @@ public class MainActivity extends AppCompatActivity
              */
             if(bmodeliste)
             {
-                btnach.setImageResource(R.drawable.ajout2);
+                if(art.getIdliste()!=0)
+                {
+                    btnach.setImageResource(R.drawable.delete2);
+                }else
+                {
+                    btnach.setImageResource(R.drawable.ajout2);
+
+                }
                 //Log.v("MAIN ACTIVITY","MODE 586 "+MySQLiteHelper.PARAM_MODEENCOURS_LISTE);
 
 

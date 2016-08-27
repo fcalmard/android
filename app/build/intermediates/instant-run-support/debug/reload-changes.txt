@@ -1,7 +1,2 @@
 CHANGED,/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$override.class
-CHANGED,/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$2$override.class
-CHANGED,/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerFamilleListener$override.class
 CHANGED,/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class
-CHANGED,/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerListeListener$override.class
-CHANGED,/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$4$override.class
-CHANGED,/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$3$override.class

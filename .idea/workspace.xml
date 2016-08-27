@@ -38,63 +38,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5665c5e4-5316-4f79-afbc-1e080363f8a3" name="Default" comment="ok">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/builds/debug/26597865258077/classes.dex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/builds/debug/26865732767338/classes.dex" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/Article$override.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/ArticleDataSource$override.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$1$override.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/MySQLiteHelper$override.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/ParamDataSource$override.class" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugAndroidTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugAndroidTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugAndroidTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugUnitTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugUnitTestJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugUnitTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_app_compileDebugUnitTestJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/Article.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/Article.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/ArticleDataSource.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/ArticleDataSource.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$4.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/Param.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/Param.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/ParamDataSource.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/ParamDataSource.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerFamilleListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerFamilleListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerListeListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/classes/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerListeListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/Article.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/Article.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/ArticleDataSource.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/ArticleDataSource.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$4.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/Param.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/Param.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/ParamDataSource.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/ParamDataSource.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerFamilleListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerFamilleListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerListeListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/incremental-verifier/debug/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerListeListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/classes.zip" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/classes.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/resources.zip" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/resources.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug-androidTest.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug-androidTest.ap_" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/app/build/intermediates/res/resources-debug.ap_" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_3/classes.dex" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/Article.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/Article.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/ArticleDataSource.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/ArticleDataSource.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$4.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/Param.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/Param.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/ParamDataSource.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/ParamDataSource.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerFamilleListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerFamilleListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerListeListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/1/5/main/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerListeListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$2$override.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$2$override.class" />
@@ -103,33 +70,18 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$override.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$override.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerFamilleListener$override.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerFamilleListener$override.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerListeListener$override.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerListeListener$override.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/Article.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/Article.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/ArticleDataSource.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/ArticleDataSource.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$1.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRun/debug/folders/4000/5/enhanced/com/android/tools/fd/runtime/AppPatchesLoaderImpl.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$2.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$2.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$3.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$3.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$4.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity$4.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/Param.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/Param.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/ParamDataSource.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/ParamDataSource.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerFamilleListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerFamilleListener.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerListeListener.class" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/acquisti/ouccelo/free/fr/acquisti/acquisti/SpinnerListeListener.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug-unaligned.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" afterPath="$PROJECT_DIR$/app/build/outputs/apk/app-debug.apk" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" afterPath="$PROJECT_DIR$/build/generated/mockable-android-23.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-hdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-mdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xhdpi-v4.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json" afterPath="$PROJECT_DIR$/app/build/intermediates/blame/res/debug/single/drawable-xxhdpi-v4.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/reload-changes.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/instant-run-support/debug/reload-changes.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/restart-dex/debug/build-info.xml" afterPath="$PROJECT_DIR$/app/build/intermediates/restart-dex/debug/build-info.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/buildId.txt" afterPath="$PROJECT_DIR$/app/build/intermediates/transforms/instantRunSlicer/debug/folders/1/5/slice_3/buildId.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/Article.java" afterPath="$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/Article.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/ArticleDataSource.java" afterPath="$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/ArticleDataSource.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity.java" afterPath="$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/Param.java" afterPath="$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/Param.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/ParamDataSource.java" afterPath="$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/ParamDataSource.java" />
     </list>
     <ignored path="Acquisti.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -193,43 +145,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="450">
-      <file leaf-file-name="MySQLiteHelper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/MySQLiteHelper.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="133" column="46" selection-start-line="133" selection-start-column="32" selection-end-line="133" selection-end-column="46" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Article.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/Article.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="123" column="10" selection-start-line="123" selection-start-column="10" selection-end-line="123" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArticleDataSource.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/ArticleDataSource.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.3164557">
-              <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-3.7857144">
-              <caret line="980" column="32" selection-start-line="980" selection-start-column="32" selection-end-line="980" selection-end-column="32" />
+            <state vertical-scroll-proportion="1.2753036">
+              <caret line="640" column="62" selection-start-line="640" selection-start-column="62" selection-end-line="640" selection-end-column="62" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5380#5411#0" expanded="true" />
@@ -239,24 +159,11 @@
                 <element signature="e#8574#8585#0" expanded="true" />
                 <element signature="e#18073#19342#0" expanded="true" />
                 <element signature="e#19341#19342#0" expanded="true" />
-                <element signature="e#21977#24049#0" expanded="true" />
-                <element signature="e#24048#24049#0" expanded="true" />
-                <element signature="e#25715#26801#0" expanded="true" />
-                <element signature="e#26800#26801#0" expanded="true" />
+                <element signature="e#22163#24235#0" expanded="true" />
+                <element signature="e#24234#24235#0" expanded="true" />
+                <element signature="e#25901#26987#0" expanded="true" />
+                <element signature="e#26986#26987#0" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="content_main.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
-          <provider selected="true" editor-type-id="android-designer">
-            <state />
-          </provider>
-          <provider editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="97" column="49" selection-start-line="97" selection-start-column="49" selection-end-line="97" selection-end-column="49" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -2401,7 +2308,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32916668" sideWeight="0.49371982" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32996064" sideWeight="0.5" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.69290125" sideWeight="0.85216415" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.50617284" sideWeight="0.85216415" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24957842" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24957842" sideWeight="0.51747465" order="6" side_tool="true" content_ui="tabs" />
@@ -2427,7 +2334,7 @@
     <layout-to-restore>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.69411767" sideWeight="0.85216415" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Monitor" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.50617284" sideWeight="0.85216415" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.72266066" sideWeight="0.14783587" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="1.0" sideWeight="0.11973018" order="9" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3277635" sideWeight="0.3362319" order="10" side_tool="false" content_ui="tabs" />
@@ -2450,7 +2357,7 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24957842" sideWeight="0.51747465" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.81459856" sideWeight="0.48985508" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5767285" sideWeight="0.48252538" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5767285" sideWeight="0.48252538" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
@@ -2481,7 +2388,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="133" column="46" selection-start-line="133" selection-start-column="32" selection-end-line="133" selection-end-column="46" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2516,10 +2425,10 @@
             <element signature="e#8574#8585#0" expanded="true" />
             <element signature="e#18073#19342#0" expanded="true" />
             <element signature="e#19341#19342#0" expanded="true" />
-            <element signature="e#21977#24049#0" expanded="true" />
-            <element signature="e#24048#24049#0" expanded="true" />
-            <element signature="e#25715#26801#0" expanded="true" />
-            <element signature="e#26800#26801#0" expanded="true" />
+            <element signature="e#22163#24235#0" expanded="true" />
+            <element signature="e#24234#24235#0" expanded="true" />
+            <element signature="e#25901#26987#0" expanded="true" />
+            <element signature="e#26986#26987#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2528,7 +2437,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="133" column="46" selection-start-line="133" selection-start-column="32" selection-end-line="133" selection-end-column="46" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2554,7 +2465,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2587,10 +2500,10 @@
             <element signature="e#8574#8585#0" expanded="true" />
             <element signature="e#18073#19342#0" expanded="true" />
             <element signature="e#19341#19342#0" expanded="true" />
-            <element signature="e#21977#24049#0" expanded="true" />
-            <element signature="e#24048#24049#0" expanded="true" />
-            <element signature="e#25715#26801#0" expanded="true" />
-            <element signature="e#26800#26801#0" expanded="true" />
+            <element signature="e#22163#24235#0" expanded="true" />
+            <element signature="e#24234#24235#0" expanded="true" />
+            <element signature="e#25901#26987#0" expanded="true" />
+            <element signature="e#26986#26987#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2610,7 +2523,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2635,10 +2550,10 @@
             <element signature="e#8574#8585#0" expanded="true" />
             <element signature="e#18073#19342#0" expanded="true" />
             <element signature="e#19341#19342#0" expanded="true" />
-            <element signature="e#21977#24049#0" expanded="true" />
-            <element signature="e#24048#24049#0" expanded="true" />
-            <element signature="e#25715#26801#0" expanded="true" />
-            <element signature="e#26800#26801#0" expanded="true" />
+            <element signature="e#22163#24235#0" expanded="true" />
+            <element signature="e#24234#24235#0" expanded="true" />
+            <element signature="e#25901#26987#0" expanded="true" />
+            <element signature="e#26986#26987#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2647,7 +2562,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2672,10 +2589,10 @@
             <element signature="e#8574#8585#0" expanded="true" />
             <element signature="e#18073#19342#0" expanded="true" />
             <element signature="e#19341#19342#0" expanded="true" />
-            <element signature="e#21977#24049#0" expanded="true" />
-            <element signature="e#24048#24049#0" expanded="true" />
-            <element signature="e#25715#26801#0" expanded="true" />
-            <element signature="e#26800#26801#0" expanded="true" />
+            <element signature="e#22163#24235#0" expanded="true" />
+            <element signature="e#24234#24235#0" expanded="true" />
+            <element signature="e#25901#26987#0" expanded="true" />
+            <element signature="e#26986#26987#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2684,7 +2601,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="115" column="21" selection-start-line="115" selection-start-column="21" selection-end-line="115" selection-end-column="21" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2709,10 +2628,10 @@
             <element signature="e#8574#8585#0" expanded="true" />
             <element signature="e#18073#19342#0" expanded="true" />
             <element signature="e#19341#19342#0" expanded="true" />
-            <element signature="e#21977#24049#0" expanded="true" />
-            <element signature="e#24048#24049#0" expanded="true" />
-            <element signature="e#25715#26801#0" expanded="true" />
-            <element signature="e#26800#26801#0" expanded="true" />
+            <element signature="e#22163#24235#0" expanded="true" />
+            <element signature="e#24234#24235#0" expanded="true" />
+            <element signature="e#25901#26987#0" expanded="true" />
+            <element signature="e#26986#26987#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2721,7 +2640,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="112" column="22" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2753,10 +2674,10 @@
             <element signature="e#8574#8585#0" expanded="true" />
             <element signature="e#18073#19342#0" expanded="true" />
             <element signature="e#19341#19342#0" expanded="true" />
-            <element signature="e#21977#24049#0" expanded="true" />
-            <element signature="e#24048#24049#0" expanded="true" />
-            <element signature="e#25715#26801#0" expanded="true" />
-            <element signature="e#26800#26801#0" expanded="true" />
+            <element signature="e#22163#24235#0" expanded="true" />
+            <element signature="e#24234#24235#0" expanded="true" />
+            <element signature="e#25901#26987#0" expanded="true" />
+            <element signature="e#26986#26987#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2775,7 +2696,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="112" column="22" selection-start-line="112" selection-start-column="22" selection-end-line="112" selection-end-column="22" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2808,7 +2731,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="525" column="0" selection-start-line="525" selection-start-column="0" selection-end-line="525" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2825,10 +2750,10 @@
             <element signature="e#8574#8585#0" expanded="true" />
             <element signature="e#18073#19342#0" expanded="true" />
             <element signature="e#19341#19342#0" expanded="true" />
-            <element signature="e#21977#24049#0" expanded="true" />
-            <element signature="e#24048#24049#0" expanded="true" />
-            <element signature="e#25715#26801#0" expanded="true" />
-            <element signature="e#26800#26801#0" expanded="true" />
+            <element signature="e#22163#24235#0" expanded="true" />
+            <element signature="e#24234#24235#0" expanded="true" />
+            <element signature="e#25901#26987#0" expanded="true" />
+            <element signature="e#26986#26987#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2847,7 +2772,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="525" column="0" selection-start-line="525" selection-start-column="0" selection-end-line="525" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2864,10 +2791,10 @@
             <element signature="e#8574#8585#0" expanded="true" />
             <element signature="e#18073#19342#0" expanded="true" />
             <element signature="e#19341#19342#0" expanded="true" />
-            <element signature="e#21977#24049#0" expanded="true" />
-            <element signature="e#24048#24049#0" expanded="true" />
-            <element signature="e#25715#26801#0" expanded="true" />
-            <element signature="e#26800#26801#0" expanded="true" />
+            <element signature="e#22163#24235#0" expanded="true" />
+            <element signature="e#24234#24235#0" expanded="true" />
+            <element signature="e#25901#26987#0" expanded="true" />
+            <element signature="e#26986#26987#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2886,7 +2813,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2921,14 +2850,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.12464589">
           <caret line="7" column="19" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/MySQLiteHelper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="133" column="46" selection-start-line="133" selection-start-column="32" selection-end-line="133" selection-end-column="46" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2974,6 +2895,34 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/MySQLiteHelper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.054320987">
+          <caret line="133" column="46" selection-start-line="133" selection-start-column="32" selection-end-line="133" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/Article.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.40246913">
+          <caret line="123" column="10" selection-start-line="123" selection-start-column="10" selection-end-line="123" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/ArticleDataSource.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3190184">
+          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/res/layout/content_main.xml">
       <provider selected="true" editor-type-id="android-designer">
         <state />
@@ -2985,28 +2934,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/ArticleDataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.3164557">
-          <caret line="78" column="0" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/Article.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="123" column="10" selection-start-line="123" selection-start-column="10" selection-end-line="123" selection-end-column="10" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/acquisti/ouccelo/free/fr/acquisti/acquisti/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.7857144">
-          <caret line="980" column="32" selection-start-line="980" selection-start-column="32" selection-end-line="980" selection-end-column="32" />
+        <state vertical-scroll-proportion="1.2753036">
+          <caret line="640" column="62" selection-start-line="640" selection-start-column="62" selection-end-line="640" selection-end-column="62" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#5380#5411#0" expanded="true" />
@@ -3016,10 +2947,10 @@
             <element signature="e#8574#8585#0" expanded="true" />
             <element signature="e#18073#19342#0" expanded="true" />
             <element signature="e#19341#19342#0" expanded="true" />
-            <element signature="e#21977#24049#0" expanded="true" />
-            <element signature="e#24048#24049#0" expanded="true" />
-            <element signature="e#25715#26801#0" expanded="true" />
-            <element signature="e#26800#26801#0" expanded="true" />
+            <element signature="e#22163#24235#0" expanded="true" />
+            <element signature="e#24234#24235#0" expanded="true" />
+            <element signature="e#25901#26987#0" expanded="true" />
+            <element signature="e#26986#26987#0" expanded="true" />
           </folding>
         </state>
       </provider>
