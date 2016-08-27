@@ -12,7 +12,12 @@ public class Param {
     private Long familleEnCours;
 
 
-	public Param(){}
+	public Param(){
+        long l=0;
+        this.listeencours=l;
+        this.familleEnCours=l;
+
+    }
 
     public Param(long id, int versionBd,String modeencours) {
         this.id = id;
@@ -77,6 +82,15 @@ public class Param {
 	public boolean getBmodectrl()
 	{
 		return this.bmodectrl;
+	}
+
+	public Long getListeEnCours()
+	{
+        return this.listeencours;
+	}
+	public void setListeencours(Long liste)
+	{
+		this.listeencours=liste;
 	}
 /*
 Mémorise famille selectinnonée

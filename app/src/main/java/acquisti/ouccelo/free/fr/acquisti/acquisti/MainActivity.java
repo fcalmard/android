@@ -78,6 +78,7 @@ public class MainActivity extends AppCompatActivity
         List exemple = new ArrayList();
         exemple.add("Choisir liste");
         exemple.add("ma liste2");
+        exemple.add("ma liste3");
 
 
 		/*Le Spinner a besoin d'un adapter pour sa presentation alors on lui passe le context(this) et
@@ -279,10 +280,13 @@ public class MainActivity extends AppCompatActivity
         Spinner spinner_famille = (Spinner) findViewById(R.id.spinner_famille);
 
         spinner_famille.setAdapter(myAdapter);
-        spinner_famille.setOnItemSelectedListener(new SpinnerFamilleListener());
+        //spinner_famille.setOnItemSelectedListener(new SpinnerFamilleListener());
+        spinner_famille.setOnItemSelectedListener(this);
 
         ParamDataSource dtsparam = new ParamDataSource(this);
         dtsparam.open();
+
+
 
         MySQLiteHelper mysqlhlpr=new MySQLiteHelper(this);
 
@@ -401,9 +405,21 @@ public class MainActivity extends AppCompatActivity
 
         //Log.v("MAIN ONSTART******","398");
 
-        Long listeid=spinner_liste.getSelectedItemId();
+        nParam = dtsparam.LectureParam();
 
-        //Log.v("MAIN ONSTART******","402");
+        Long listeid=nParam.getListeEnCours();
+        lidfamille=nParam.getFamilleEnCours();
+
+                //spinner_liste.getSelectedItemId();
+
+        int lid=listeid.intValue();
+        int lidf=lidfamille.intValue();
+
+        spinner_liste.setSelection(lid,true);
+
+        spinner_famille.setSelection(lidf,true);
+
+        //Log.v("MAIN ONSTART******","413 listeid="+listeid+" lid="+lid);
 
         this.AfficheArticles(lidfamille,listeid);
 
@@ -533,8 +549,18 @@ public class MainActivity extends AppCompatActivity
 
                     long l=0;
 
-                    Log.v("ONCLICK"," 536 ARTICLE "+art.toString());
+                   //Log.v("ONCLICK"," 536 ARTICLE "+art.toString());
 
+                    ParamDataSource pdts = new ParamDataSource(view.getContext());
+                    pdts.open();
+                    //MySQLiteHelper.PARAM_COLUMN_LISTEENCOURS
+
+                    Param param=pdts.LectureParam();
+
+                    long lid= param.getListeEnCours();
+
+                    pdts.close();
+/*
                     if(art.getIdliste()==0)
                     {
                         l=1;
@@ -542,8 +568,9 @@ public class MainActivity extends AppCompatActivity
                     {
                         l=0;
                     }
+                    */
 
-                    majArticle(datasourceart,art,modeEnCours,l);
+                    majArticle(datasourceart,art,modeEnCours,lid);
 
                     finish();
                     startActivity(getIntent());
@@ -562,7 +589,7 @@ public class MainActivity extends AppCompatActivity
 
             TextView texttv = new TextView(context);
 
-            String libelle=art.getLibelle()+" LISTE= "+art.getIdliste();
+            String libelle=art.getLibelle();//+" LISTE= "+art.getIdliste();
 
             texttv.setText(libelle);
 
@@ -824,7 +851,7 @@ public class MainActivity extends AppCompatActivity
             //Log.v("MAJARTICLE","MODE ACHAT");
         }else
         {
-            Log.v("MAJARTICLE", String.format("MODE LISTE IDLISTE=%d", idliste));
+           //Log.v("MAJARTICLE", String.format("MODE LISTE IDLISTE=%d", idliste));
 
             if(idliste>-1)
             {
@@ -1018,13 +1045,39 @@ class SpinnerListeListener implements AdapterView.OnItemSelectedListener {
 
     @Override
     public void onItemSelected(AdapterView<?> av, View view, int position, long id) {
+       //Log.v("MAIN ONITEMSELECTED","1039 SELECTION LISTE");
 
-        //Log.v("MAIN ONITEMSELECTED","1019 SELECTION LISTE");
+       //Log.v("MAIN ONITEMSELECTED","1041 LONGID="+id);
+       //Log.v("MAIN ONITEMSELECTED","1042 POSITION="+position);
 
-        //Log.v("MAIN ONITEMSELECTED","1021 LONGID="+id);
-        //Log.v("MAIN ONITEMSELECTED","1022 POSITION="+position);
+        //R.id.spinner_liste
+        //Spinner spinner_liste = (Spinner) view.findViewById(R.id.spinner_liste);
 
+        //Long listeid=spinner_liste.getSelectedItemId();
+        //Log.v("MAIN ONITEMSELECTED","1040 listeid="+spinner_liste.toString());
 
+        long listeid=0;
+
+        listeid=av.getSelectedItemId();
+
+       //Log.v("MAIN ONITEMSELECTED","1054 listeid="+listeid);
+
+        ParamDataSource pdts = new ParamDataSource(view.getContext());
+        pdts.open();
+        //MySQLiteHelper.PARAM_COLUMN_LISTEENCOURS
+
+        Param param=pdts.LectureParam();
+
+       //Log.v("MAIN ONITEMSELECTED","1056 listeid="+listeid);
+        if(listeid!=0)
+        {
+            param.setListeencours(listeid);
+
+            pdts.updateParam(param);
+
+            pdts.close();
+
+        }
     }
     @Override
     public void onNothingSelected(AdapterView<?> adapterView) {
@@ -1042,6 +1095,46 @@ class SpinnerFamilleListener implements AdapterView.OnItemSelectedListener {
 
         //Log.v("MAIN ONITEMSELECTED","1040 LONGID="+id);
         //Log.v("MAIN ONITEMSELECTED","1041 POSITION="+position);
+
+        long famid=0;
+
+        famid=av.getSelectedItemId();
+
+        //Log.v("MAIN ONITEMSELECTED","1054 listeid="+listeid);
+
+        ParamDataSource pdts = new ParamDataSource(view.getContext());
+        pdts.open();
+        //MySQLiteHelper.PARAM_COLUMN_LISTEENCOURS
+
+        Param param=pdts.LectureParam();
+
+        Log.v("MAIN ONITEMSELECTED","1106 famid="+famid);
+        if(famid!=0)
+        {
+            param.setFamilleEnCours(famid);
+
+            pdts.updateParam(param);
+
+            param=pdts.LectureParam();
+            famid=param.getFamilleEnCours();
+            Log.v("MAIN ONITEMSELECTED","RELECTURE FAMILLE 1115 famid="+famid);
+
+            pdts.close();
+
+        }
+/*
+
+        Param nParam = pdts.LectureParam();
+
+        Long listeid=nParam.getListeEnCours();
+        famid=nParam.getFamilleEnCours();
+
+        this.AfficheArticles(famid,listeid);
+
+                finish();
+        startActivity(getIntent());
+
+*/
 
 
     }

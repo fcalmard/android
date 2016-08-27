@@ -56,7 +56,7 @@ public class ArticleDataSource {
 		values.put(MySQLiteHelper.COLUMN_LIBELLE, article.getLibelle());
 		values.put(MySQLiteHelper.COLUMN_ID_FAMILLE, article.getFamilleId());
 
-        Log.d("TEST","insertion ARTICLE "+article.getLibelle());
+       //Log.d("TEST","insertion ARTICLE "+article.getLibelle());
         try{
 
             //database.beginTransaction();
@@ -83,7 +83,7 @@ public class ArticleDataSource {
 
         catch(Exception e)
         {
-            Log.i("TABLE_ARTICLES", "********************Exception onCreate() exception");
+           //Log.i("TABLE_ARTICLES", "********************Exception onCreate() exception");
             String message = e.getMessage();
 
             //database.endTransaction();

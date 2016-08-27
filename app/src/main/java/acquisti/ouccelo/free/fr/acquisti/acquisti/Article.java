@@ -121,7 +121,7 @@ public class Article {
 	public String toString() {
 		String sl=this.libelle;
 
-        sl=sl+" IDLISTE="+this.idliste;
+        //sl=sl+" IDLISTE="+this.idliste;
         return sl;
 	}
 

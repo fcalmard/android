@@ -112,6 +112,8 @@ public class ParamDataSource {
 
         values.put(MySQLiteHelper.PARAM_COLUMN_FAMENCOURS, param.getFamilleEnCours());
 
+        values.put(MySQLiteHelper.PARAM_COLUMN_LISTEENCOURS, param.getListeEnCours());
+
         /*Log.d("UPDATEPARAM"," >ID >"+param.getId()+"<<<<<<");
 		Log.d("UPDATEPARAM"," VBD >>>>>>>"+param.getversionBd()+"<<<<<<");
 		Log.d("UPDATEPARAM"," MODE >>>>>>>"+param.getModeencours()+"<<<<<<");
@@ -212,9 +214,13 @@ public class ParamDataSource {
         int ctrlactive=cursor.getInt(3);
 
         param.setBmodectrl(ctrlactive==1);
+
+        Long listeid=cursor.getLong(4);
+        param.setListeencours(listeid);
+
         Long lf=cursor.getLong(5);
 
-        //Log.v("PDS, CURSORTOPARAM","210 LECTURE LF="+lf+" ID="+id);
+        Log.v("PDS, CURSORTOPARAM","221 LECTURE listeid="+listeid+" ID="+id);
 
         param.setFamilleEnCours(lf);
 
