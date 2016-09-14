@@ -348,7 +348,7 @@ public class ArticleDataSource {
 
 		cursor.moveToFirst();
 
-		//Log.v("ART DATA SOURCE","ARTDTS 204 FILTRE >"+sFiltre+"< MODE >"+sMode+" NOMBRE ARTICLE="+cursor.getCount());
+		Log.v("ART DATA SOURCE","ARTDTS 351 FILTRE >"+sFiltre+"< MODE >"+sMode+" NOMBRE ARTICLE="+cursor.getCount());
 
 		while (!cursor.isAfterLast()) {
 			Article article = cursorToArticle(cursor);

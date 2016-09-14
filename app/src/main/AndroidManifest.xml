@@ -27,13 +27,12 @@
             android:name=".Articles"
             android:label="@string/title_activity_articles"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Familles"
             android:label="@string/title_activity_familles"
             android:parentActivityName=".MainActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-
+            android:theme="@style/AppTheme.NoActionBar" />
 
         <service android:name=".ArtServices" />
 
@@ -41,6 +40,7 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
 
+        <activity android:name=".ParametresActivity"></activity>
     </application>
 
 </manifest>

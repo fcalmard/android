@@ -3,6 +3,7 @@ package ouccelo.com.acquisti;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.AvoidXfermode;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.net.Uri;
@@ -138,8 +139,8 @@ public class MainActivity extends AppCompatActivity
 
                 Param param=pdts.LectureParam();
 
-                //Log.v("MAIN ONITEMSELECTED","1056 listeid="+listeid);
-                if(id!=0)
+               //Log.v("MAIN ONITEMSELECTED","141 listeid="+id);
+                if(id!=-1)
                 {
                     param.setListeencours(id);
 
@@ -168,13 +169,47 @@ public class MainActivity extends AppCompatActivity
        // spinner_famille.setAdapter(adapter);
         spinner_famille.setAdapter(myAdapter);
 
+
+
         spinner_famille.setPrompt("Selectionnez une Famille");
         spinner_famille.setOnItemSelectedListener(new OnItemSelectedListener()
         {
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id)
             {
-               //Log.v("MAINACT","127 FAMILLE SELECTIONNEE");
+                //Log.v("MAINACT","177 FAMILLE SELECTIONNEE");
+                if(selectedItemView !=null)
+                {
+                    ParamDataSource pdts = new ParamDataSource(selectedItemView.getContext());
+                    pdts.open();
+                    //MySQLiteHelper.PARAM_COLUMN_LISTEENCOURS
+                    //Log.v("MAIN ONITEMSELECTED","183 listeid="+id);
+
+                    Param param=pdts.LectureParam();
+                    //Log.v("MAIN ONITEMSELECTED","188 listeid="+id);
+
+                    if(id!=-1)
+                    {
+                        param.setFamilleEnCours(id);
+
+                        pdts.updateParam(param);
+
+                        pdts.close();
+
+                        //Log.v("MAINACT","198, LISTE SELECTIONNEE ID="+id);
+
+                        AfficheArticles();
+
+                    }
+                }else
+                {
+                    //Log.v("MAINACT","202 TOUTE FAMILLE SELECTIONNEE");
+                    ParamDataSource pdts = new ParamDataSource(selectedItemView.getContext());
+                    //Log.v("MAINACT","203 TOUTE FAMILLE SELECTIONNEE");
+
+                }
+
+
             }
 
             @Override
@@ -183,6 +218,8 @@ public class MainActivity extends AppCompatActivity
             }
         });
         //spinner_famille.setOnItemClickListener(new SpinnerFamilleListener());
+        //Log.v("MAINACT","220 FAMILLE ID="+lidfamille.intValue());
+        spinner_famille.setSelection(lidfamille.intValue(),true);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
@@ -229,6 +266,9 @@ public class MainActivity extends AppCompatActivity
                 DrawerLayout.LayoutParams.FILL_PARENT);
        //Log.v("MAINACT AfficheArticles","201");
 
+        Spinner spinner_famille = (Spinner) findViewById(R.id.spinner_famille);
+
+
         final ArticleDataSource datasourceart = new ArticleDataSource(this);
         datasourceart.open();
         Param nParam=new Param();
@@ -242,10 +282,13 @@ public class MainActivity extends AppCompatActivity
         dtsparam.open();
         //Log.v("AfficheArticles","460");
         nParam=dtsparam.LectureParam();
-        //Log.v("AfficheArticles","462");
         final String modeEnCours=nParam.getModeencours();
 
-        final Long idfamille=nParam.getFamilleEnCours();
+        Long idfamille=nParam.getFamilleEnCours();
+       //Log.v("AfficheArticles","287 idfamille="+idfamille);
+        spinner_famille.setSelection(idfamille.intValue(),true);
+
+        //idfamille= 0L;
 
         Long listeid=nParam.getListeEnCours();
 
@@ -257,7 +300,7 @@ public class MainActivity extends AppCompatActivity
 
         List<Article> listValuesArt = datasourceart.getAllArticles(idfamille,"",modeEnCours,nParam.getBmodectrl());
 
-        //Log.v("AfficheArticles","494");
+        //Log.v("AfficheArticles","282 "+listValuesArt.toArray().length);
         myAdapterArt = new ArrayAdapter<Article>(this, R.layout.row_layout_article,
                 R.id.listText, listValuesArt);
         //Log.v("AfficheArticles","497");
@@ -295,6 +338,7 @@ public class MainActivity extends AppCompatActivity
             final ImageButton btnach= new ImageButton(context);
 
             btnach.setId(iart);
+            btnach.setBackground(null);
 
             btnach.setTag(art);
 
@@ -318,7 +362,7 @@ public class MainActivity extends AppCompatActivity
 
                     long l=0;
 
-                    Log.v("ONCLICK"," 321 ARTICLE "+art.toString());
+                   //Log.v("ONCLICK"," 321 ARTICLE "+art.toString());
 
                     ParamDataSource pdts = new ParamDataSource(view.getContext());
                     pdts.open();
@@ -336,12 +380,6 @@ public class MainActivity extends AppCompatActivity
                     if(art.getIdliste()!=0)
                     {
                         lid=0;
-                        Log.v("ONCLICK"," 339 "+lid);
-
-                    }else
-                    {
-                        //lid=art.getIdliste();
-                        Log.v("ONCLICK"," 344 DANS LISTE "+lid);
                     }
 
                     majArticle(datasourceart,art,modeEnCours,lid);
@@ -360,7 +398,22 @@ public class MainActivity extends AppCompatActivity
 
             gabaritDet.setClickable(true);
 
+            /*
+            bouton image detail ligne de course
+             */
+
+            ImageButton imgbutdetail = new ImageButton(context);
+            imgbutdetail.setBackgroundResource(R.drawable.edit);
+            imgbutdetail.setMaxWidth(5);
+            imgbutdetail.setMaxHeight(5);
+
+            imgbutdetail.setX(2);
+
+            gabaritDet.addView(imgbutdetail);
+
             TextView texttv = new TextView(context);
+
+            texttv.setX(5);
 
             String libelle=art.getLibelle();//+" LISTE= "+art.getIdliste();
 
@@ -388,7 +441,7 @@ public class MainActivity extends AppCompatActivity
 
             if (oi == 1)
             {
-                w=400;//portrait
+                w=330;//portrait
             }
             else
             {
@@ -411,10 +464,10 @@ public class MainActivity extends AppCompatActivity
             {
                 if(art.getIdliste()!=0)
                 {
-                    btnach.setImageResource(R.drawable.delete2);
+                    btnach.setImageResource(R.drawable.delete9);
                 }else
                 {
-                    btnach.setImageResource(R.drawable.ajout2);
+                    btnach.setImageResource(R.drawable.ajout5);
 
                 }
                 //Log.v("MAIN ACTIVITY","MODE 586 "+MySQLiteHelper.PARAM_MODEENCOURS_LISTE);
@@ -423,11 +476,11 @@ public class MainActivity extends AppCompatActivity
             }else{
                 if(art.getEstachete()==1)
                 {
-                    btnach.setImageResource(R.drawable.delete2);
+                    btnach.setImageResource(R.drawable.delete9);
 
                 }else
                 {
-                    btnach.setImageResource(R.drawable.kaddy);
+                    btnach.setImageResource(R.drawable.basket);
 
                 }
                 //Log.v("MAIN ACTIVITY","MODE 591 "+MySQLiteHelper.PARAM_MODEENCOURS_ACHAT);
@@ -550,7 +603,7 @@ public class MainActivity extends AppCompatActivity
 
         }else
         {
-            imageBtnActiverModeCtrl.setBackgroundResource(R.drawable.controleb);
+            imageBtnActiverModeCtrl.setBackgroundResource(R.drawable.accept3);
 
         }
         //Log.v("MAIN ACT","723");
@@ -642,10 +695,10 @@ public class MainActivity extends AppCompatActivity
 
         boolean modeachat=modeEnCours.equals(MySQLiteHelper.PARAM_MODEENCOURS_ACHAT);
 
-        Log.v("MAJARTICLE", " Article" + art.toString()+" MODEENCOURS >"+modeEnCours+"<");
+       //Log.v("MAJARTICLE", " Article" + art.toString()+" MODEENCOURS >"+modeEnCours+"<");
         if(modeachat)
         {
-            Log.v("MAJARTICLE","MODE ACHAT 871 Estachete >"+art.getEstachete()+"<");
+           //Log.v("MAJARTICLE","MODE ACHAT 871 Estachete >"+art.getEstachete()+"<");
 
             if(art.getEstachete()==1)
                 art.setEstachete(0);
@@ -656,7 +709,7 @@ public class MainActivity extends AppCompatActivity
 
         }else
         {
-            Log.v("MAJARTICLE", String.format("MODE LISTE IDLISTE=%d", idliste));
+           //Log.v("MAJARTICLE", String.format("MODE LISTE IDLISTE=%d", idliste));
 
             if(idliste>-1)
             {
@@ -742,6 +795,10 @@ public class MainActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
+            final Intent intent = new Intent(MainActivity.this, ParametresActivity.class);
+            startActivity(intent);
+            AfficheFamilles();
             return true;
         }
 
@@ -1023,14 +1080,14 @@ class SpinnerListeListener implements OnItemSelectedListener, OnItemClickListene
 
 
 
-        Log.v("MAINONITEMCLICK","LISTE 170");
+       //Log.v("MAINONITEMCLICK","LISTE 170");
 
     }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-        Log.v("MAINONITEMSELECTED","LISTE 177");
+       //Log.v("MAINONITEMSELECTED","LISTE 177");
 
     }
 
@@ -1045,14 +1102,14 @@ class SpinnerFamilleListener implements OnItemSelectedListener, OnItemClickListe
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-        Log.v("MAINONITEMCLICK","FAMILLE 192");
+       //Log.v("MAINONITEMCLICK","FAMILLE 1075");
 
     }
 
     @Override
     public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
 
-        Log.v("MAINONITEMSELECTED","FAMILLE 199");
+       //Log.v("MAINONITEMSELECTED","FAMILLE 199");
 
     }
 

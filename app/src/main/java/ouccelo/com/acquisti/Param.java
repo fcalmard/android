@@ -11,6 +11,17 @@ public class Param {
     private Long listeencours;
     private Long familleEnCours;
 
+    private boolean brecovocale;
+    private boolean bgestfamart;
+    private boolean bsaisiemanuelle;
+    private boolean bsaisiemanart;
+    private boolean bsaisiemanfamille;
+    private boolean bsaisiedetailart;
+    private boolean bsaisiedetailartqte;
+    private boolean bsaisiedetailartpuht;
+    private boolean bsaisiedetailarttva;
+    private boolean bsaisiedetailartputtc;
+
 
 	public Param(){
         long l=0;
@@ -75,14 +86,107 @@ public class Param {
         return this.modeencours;
 	}
 
-	public void setBmodectrl(boolean bctrl)
-	{
-		this.bmodectrl=bctrl;
-	}
-	public boolean getBmodectrl()
-	{
-		return this.bmodectrl;
-	}
+    public void setBmodectrl(boolean bctrl)
+    {
+        this.bmodectrl=bctrl;
+    }
+    public boolean getBmodectrl()
+    {
+        return this.bmodectrl;
+    }
+
+    public void setBrecovocale(boolean bctrl)
+    {
+        this.brecovocale=bctrl;
+    }
+    public boolean getBrecovocale()
+    {
+        return this.brecovocale;
+    }
+
+
+
+    public void setBsaisiemanuelle(boolean bctrl)
+    {
+        this.bsaisiemanuelle=bctrl;
+    }
+    public boolean getBsaisiemanuelle()
+    {
+        return this.bsaisiemanuelle;
+    }
+
+    public void setBgestfamart(boolean bctrl)
+    {
+        this.bgestfamart=bctrl;
+    }
+    public boolean getBgestfamart()
+    {
+        return this.bgestfamart;
+    }
+
+    public void setBsaisiemanart(boolean bctrl)
+    {
+        this.bsaisiemanart=bctrl;
+    }
+    public boolean getBsaisiemanart()
+    {
+        return this.bsaisiemanart;
+    }
+
+    public void setBsaisiemanfamille(boolean bctrl)
+    {
+        this.bsaisiemanfamille=bctrl;
+    }
+    public boolean getBsaisiemanfamille()
+    {
+        return this.bsaisiemanfamille;
+    }
+
+    public void setBsaisiedetailart(boolean bctrl)
+    {
+        this.bsaisiedetailart=bctrl;
+    }
+    public boolean getBsaisiedetailart()
+    {
+        return this.bsaisiedetailart;
+    }
+    public void setBsaisiedetailartqte(boolean bctrl)
+    {
+        this.bsaisiedetailartqte=bctrl;
+    }
+    public boolean getBsaisiedetailartqte()
+    {
+        return this.bsaisiedetailartqte;
+    }
+
+    public void setBsaisiedetailartpuht(boolean bctrl)
+    {
+        this.bsaisiedetailartpuht=bctrl;
+    }
+    public boolean getBsaisiedetailartpuht()
+    {
+        return this.bsaisiedetailartpuht;
+    }
+    public void setBsaisiedetailarttva(boolean bctrl)
+    {
+        this.bsaisiedetailarttva=bctrl;
+    }
+    public boolean getBsaisiedetailarttva()
+    {
+        return this.bsaisiedetailarttva;
+    }
+    public void setBsaisiedetailartputtc(boolean bctrl)
+    {
+        this.bsaisiedetailartputtc=bctrl;
+    }
+    public boolean getBsaisiedetailartputtc()
+    {
+        return this.bsaisiedetailartputtc;
+    }
+
+
+
+
 
 	public Long getListeEnCours()
 	{

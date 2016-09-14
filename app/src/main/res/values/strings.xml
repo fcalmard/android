@@ -24,4 +24,17 @@
     <string name="msgsaisiefam">Saisissez une famille</string>
     <string name="libelle_activity_initlistes">Initialiser Listes</string>
 
+    <string name="lib_toutesoptions">Activer toutes les options</string>
+    <string name="lib_destoutesoptions">Desactiver toutes les options</string>
+    <string name="lib_gestfamprod">Gestion des familles de produits</string>
+    <string name="lib_saismanuelle">Saisie manuelle</string>
+    <string name="lib_saismanprod">Saisie manuelle des articles</string>
+    <string name="lib_saismanfam">Saisie manuelle des familles</string>
+    <string name="lib_recovocale">Reconnaissance vocale</string>
+    <string name="lib_gestdetprod">Saisie détaillée des articles</string>
+    <string name="lib_gestdetprodpuht">Saisie du Prix Unitaire Ht</string>
+    <string name="lib_gestdetprodputtc">Saisie du Prix Unitaire TTC</string>
+    <string name="lib_gestdetprodtva">Saisie Taux TVA</string>
+    <string name="lib_gestdetprodqte">Saisie Quantité</string>
+    .
 </resources>
