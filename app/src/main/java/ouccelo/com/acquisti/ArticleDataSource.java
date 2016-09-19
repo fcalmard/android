@@ -286,7 +286,7 @@ public class ArticleDataSource {
 				MySQLiteHelper.COLUMN_ID + " = " + id, null);
 	}
 
-	public List<Article> getAllArticles(long ifam,String order,String sMode,boolean controle) {
+	public List<Article> getAllArticles(long ifam,String order,String sMode,boolean controle,Long iListe,boolean bFiltreliste) {
 		List<Article> articles = new ArrayList<Article>();
 
 		Cursor cursor;
@@ -295,25 +295,41 @@ public class ArticleDataSource {
 
         if(sMode.equals(MySQLiteHelper.PARAM_MODEENCOURS_ACHAT))
         {
-            if(!sFiltre.equals(""))
+
+
+            if(iListe!=0)
             {
-                sFiltre=sFiltre+" and ";
+                /*
+                filtrage sur liste en cours
+                 */
+                if(!sFiltre.equals(""))
+                {
+                    sFiltre=sFiltre+" and ";
+                }else
+                {
+                    sFiltre="";
+                }
+                sFiltre=sFiltre+MySQLiteHelper.COLUMN_DSLISTE+" = "+iListe;
             }else
             {
-                sFiltre="";
+                if(!sFiltre.equals(""))
+                {
+                    sFiltre=sFiltre+" and ";
+                }else
+                {
+                    sFiltre="";
+                }
+                sFiltre=sFiltre+MySQLiteHelper.COLUMN_DSLISTE+" !=0";
             }
-            sFiltre=sFiltre+MySQLiteHelper.COLUMN_DSLISTE+" !=0";
 
             if(!controle)
             {
-            /*
-            si controle alors on affiche tout
-            si non on n'affiche plus que ce que l'on a acheté
-            au fur et a mesure les articles acheté disparaise de la liste
-
-             *
-             */
-
+                /*
+                si controle alors on affiche tout
+                si non on n'affiche plus que ce que l'on a acheté
+                au fur et a mesure les articles acheté disparaise de la liste
+                 *
+                 */
                 if(!sFiltre.equals(""))
                 {
                     sFiltre=sFiltre+" and ";
@@ -325,6 +341,27 @@ public class ArticleDataSource {
 
             }
 
+            Log.v("ART DATA SOURCE"," 328 ILISTE="+iListe);
+
+
+
+        }else
+        {
+            if(iListe!=0 & bFiltreliste)
+            {
+                /*
+                filtrage sur liste en cours
+                 */
+                if(!sFiltre.equals(""))
+                {
+                    sFiltre=sFiltre+" and ";
+                }else
+                {
+                    sFiltre="";
+                }
+                sFiltre=sFiltre+MySQLiteHelper.COLUMN_DSLISTE+" = "+iListe;
+                //Log.v("ART DATA SOURCE"," 360 ILISTE="+iListe+" "+sFiltre);
+            }
         }
 
 		if (ifam!=0)
@@ -338,9 +375,6 @@ public class ArticleDataSource {
 
 			//TABLE_ARTICLES_FAMILLE
 
-		}else
-		{
-
 		}
 
         cursor = database.query(MySQLiteHelper.TABLE_ARTICLES,this.allColumns,sFiltre,
@@ -348,7 +382,7 @@ public class ArticleDataSource {
 
 		cursor.moveToFirst();
 
-		Log.v("ART DATA SOURCE","ARTDTS 351 FILTRE >"+sFiltre+"< MODE >"+sMode+" NOMBRE ARTICLE="+cursor.getCount());
+		Log.v("ART DATA SOURCE","ARTDTS 348 FILTRE >"+sFiltre+"< MODE >"+sMode+" NOMBRE ARTICLE="+cursor.getCount());
 
 		while (!cursor.isAfterLast()) {
 			Article article = cursorToArticle(cursor);

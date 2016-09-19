@@ -52,7 +52,6 @@ public class ParametresActivity extends AppCompatActivity {
         checkBox = (CheckBox) findViewById(R.id.optsaisputtc);
         checkBox.setChecked(param.getBsaisiedetailartputtc());
 
-
         pdts.close();
 
     }
@@ -117,22 +116,17 @@ public class ParametresActivity extends AppCompatActivity {
         activation=false;
         if(view.getId()==R.id.optactivertoutes)
         {
-            Log.v("PARAM ACTIVITY","ACTIVER TOUTES");
             CheckBox checkBox = (CheckBox) findViewById(R.id.optdesactivertoutes);
             checkBox.setChecked(false);
-
-
             activation=true;
 
 
         }
         if(view.getId()==R.id.optdesactivertoutes)
         {
-            Log.v("PARAM ACTIVITY","DES ACTIVER TOUTES");
             CheckBox checkBox = (CheckBox) findViewById(R.id.optactivertoutes);
             checkBox.setChecked(false);
             activation=false;
-
 
         }
         CheckBox checkBox = (CheckBox) findViewById(R.id.optrecovocale);
@@ -149,31 +143,119 @@ public class ParametresActivity extends AppCompatActivity {
         checkBox = (CheckBox) findViewById(R.id.optgestdetprod);
         checkBox.setChecked(activation);
 
-        activeroptionsaisiedetaillee(view);
+
+        checkBox = (CheckBox) findViewById(R.id.optgestdetprod);
+        checkBox.setChecked(activation);
+        checkBox = (CheckBox) findViewById(R.id.optsaisqte);
+        checkBox.setChecked(activation);
+        checkBox = (CheckBox) findViewById(R.id.optsaispuht);
+        checkBox.setChecked(activation);
+        checkBox = (CheckBox) findViewById(R.id.optsaistva);
+        checkBox.setChecked(activation);
+        checkBox = (CheckBox) findViewById(R.id.optsaisputtc);
+        checkBox.setChecked(activation);
 
     }
 
     public void activeroptionsaisiedetaillee(View view)
     {
         boolean activation;
-        activation=false;
+        switch (view.getId())
+        {
+            case R.id.optsaisiemanuelle:
+                CheckBox check = (CheckBox) findViewById(R.id.optsaisiemanuelle);
+                activation=check.isChecked();
+                check = (CheckBox) findViewById(R.id.optsaismanart);
+                check.setChecked(activation);
+                check = (CheckBox) findViewById(R.id.optsaismanfam);
+                check.setChecked(activation);
+                break;
+            case R.id.optsaismanart:
+                check = (CheckBox) findViewById(R.id.optsaismanart);
+                activation=check.isChecked();
+                if(activation)
+                {
+                    check = (CheckBox) findViewById(R.id.optsaisiemanuelle);
+                    check.setChecked(activation);
+                }
+                break;
+            case R.id.optsaismanfam:
+                check = (CheckBox) findViewById(R.id.optsaismanfam);
+                activation=check.isChecked();
+                if(activation)
+                {
+                    check = (CheckBox) findViewById(R.id.optsaisiemanuelle);
+                    check.setChecked(activation);
+                }
+                break;
+            case R.id.optdesactivertoutes:
+                activation=false;
 
-        if(view.getId()==R.id.optdesactivertoutes)
-        {
-            activation=false;
+                check = (CheckBox) findViewById(R.id.optsaisiemanuelle);
+                check.setChecked(activation);
+                check = (CheckBox) findViewById(R.id.optsaismanfam);
+                check.setChecked(activation);
+                check = (CheckBox) findViewById(R.id.optsaisiemanuelle);
+                check.setChecked(activation);
+
+                check = (CheckBox) findViewById(R.id.optgestdetprod);
+                check.setChecked(activation);
+
+                break;
+            case R.id.optgestdetprod:
+                check = (CheckBox) findViewById(R.id.optgestdetprod);
+                activation=check.isChecked();
+
+                CheckBox checkBox = (CheckBox) findViewById(R.id.optsaisqte);
+                checkBox.setChecked(activation);
+                checkBox = (CheckBox) findViewById(R.id.optsaispuht);
+                checkBox.setChecked(activation);
+                checkBox = (CheckBox) findViewById(R.id.optsaisputtc);
+                checkBox.setChecked(activation);
+                checkBox = (CheckBox) findViewById(R.id.optsaistva);
+                checkBox.setChecked(activation);
+                break;
+            case R.id.optsaisqte:
+                check = (CheckBox) findViewById(R.id.optsaisqte);
+                activation=check.isChecked();
+                if(activation)
+                {
+                    check = (CheckBox) findViewById(R.id.optgestdetprod);
+                    check.setChecked(activation);
+                }
+                break;
+            case R.id.optsaispuht:
+                check = (CheckBox) findViewById(R.id.optsaispuht);
+                activation=check.isChecked();
+                if(activation)
+                {
+                    check = (CheckBox) findViewById(R.id.optgestdetprod);
+                    check.setChecked(activation);
+                }
+                break;
+            case R.id.optsaisputtc:
+                check = (CheckBox) findViewById(R.id.optsaisputtc);
+                activation=check.isChecked();
+                if(activation)
+                {
+                    check = (CheckBox) findViewById(R.id.optgestdetprod);
+                    check.setChecked(activation);
+                }
+                break;
+            case R.id.optsaistva:
+                check = (CheckBox) findViewById(R.id.optsaistva);
+                activation=check.isChecked();
+                if(activation)
+                {
+                    check = (CheckBox) findViewById(R.id.optgestdetprod);
+                    check.setChecked(activation);
+                }
+                break;
+            case R.id.optactivertoutes:
+                activation=true;
+                break;
         }
-        if(view.getId()==R.id.optactivertoutes)
-        {
-            activation=true;
-        }
-        CheckBox checkBox = (CheckBox) findViewById(R.id.optsaisqte);
-        checkBox.setChecked(activation);
-        checkBox = (CheckBox) findViewById(R.id.optsaispuht);
-        checkBox.setChecked(activation);
-        checkBox = (CheckBox) findViewById(R.id.optsaisputtc);
-        checkBox.setChecked(activation);
-        checkBox = (CheckBox) findViewById(R.id.optsaistva);
-        checkBox.setChecked(activation);
+
 
     }
 }

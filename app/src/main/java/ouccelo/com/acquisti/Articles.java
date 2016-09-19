@@ -69,9 +69,11 @@ public class Articles extends ListActivity implements AdapterView.OnItemSelected
         editText = (EditText) findViewById(R.id.editText1);
         spin = (Spinner) findViewById(R.id.spinner_famille);
 
+        Long idliste=Long.valueOf(0);
+
         // on récupère les articles
         //List<Article> listValuesArt = datasource.getAllArticles(0);
-        List<Article> listValuesArt = datasource.getAllArticles(0,"","",false);
+        List<Article> listValuesArt = datasource.getAllArticles(0,"","",false,idliste,false);
 
         editText = (EditText) findViewById(R.id.editText1);
         spin = (Spinner) findViewById(R.id.spinner_famille);

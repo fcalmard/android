@@ -13,6 +13,7 @@ public class Param {
 
     private boolean brecovocale;
     private boolean bgestfamart;
+
     private boolean bsaisiemanuelle;
     private boolean bsaisiemanart;
     private boolean bsaisiemanfamille;
@@ -21,12 +22,15 @@ public class Param {
     private boolean bsaisiedetailartpuht;
     private boolean bsaisiedetailarttva;
     private boolean bsaisiedetailartputtc;
+//COLUMN_PARFILTRELISTE
+    private boolean bfiltreliste;
 
 
 	public Param(){
         long l=0;
         this.listeencours=l;
         this.familleEnCours=l;
+        this.bfiltreliste=false;
 
     }
 
@@ -34,6 +38,7 @@ public class Param {
         this.id = id;
         this.versionbd = versionBd;
         this.modeencours=modeencours;
+        this.bfiltreliste=false;
     }
     /*
 	// Database creation sql statement
@@ -108,10 +113,21 @@ public class Param {
 
     public void setBsaisiemanuelle(boolean bctrl)
     {
+        if(bctrl)
+        {
+            //Log.v("PARAMETRE 114"," SAISIE MANUELLE OUI");
+
+        }else
+        {
+            //Log.v("PARAMETRE 118"," SAISIE MANUELLE NON");
+
+        }
+
         this.bsaisiemanuelle=bctrl;
     }
     public boolean getBsaisiemanuelle()
     {
+        //Log.v("PARAMETRE 126"," LECTURE SAISIE MANUELLE "+this.bsaisiemanuelle);
         return this.bsaisiemanuelle;
     }
 
@@ -126,10 +142,21 @@ public class Param {
 
     public void setBsaisiemanart(boolean bctrl)
     {
+        if(bctrl)
+        {
+            //Log.v("PARAMETRE 143"," SAISIE MANUELLE ARTICLE OUI");
+
+        }else
+        {
+            //Log.v("PARAMETRE 147"," SAISIE MANUELLE ARTICLE NON");
+
+        }
         this.bsaisiemanart=bctrl;
     }
     public boolean getBsaisiemanart()
     {
+
+        //Log.v("PARAMETRE 155"," LECTURE SAISIE MANUELLE ARTICLE "+this.bsaisiemanart);
         return this.bsaisiemanart;
     }
 
@@ -144,10 +171,21 @@ public class Param {
 
     public void setBsaisiedetailart(boolean bctrl)
     {
+        if(bctrl)
+        {
+            //Log.v("PARAMETRE 161"," SAISIE DETAILLEE OUI");
+
+        }else
+        {
+            //Log.v("PARAMETRE 165"," SAISIE DETAILLEE NON");
+
+        }
         this.bsaisiedetailart=bctrl;
     }
     public boolean getBsaisiedetailart()
     {
+        //Log.v("PARAMETRE 172"," LECTURE SAISIE DETAILLEE "+this.bsaisiedetailart);
+
         return this.bsaisiedetailart;
     }
     public void setBsaisiedetailartqte(boolean bctrl)
@@ -185,8 +223,14 @@ public class Param {
     }
 
 
-
-
+    public void setBfiltreliste(boolean bctrl)
+    {
+        this.bfiltreliste=bctrl;
+    }
+    public boolean getBfiltreliste()
+    {
+        return this.bfiltreliste;
+    }
 
 	public Long getListeEnCours()
 	{

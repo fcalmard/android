@@ -60,8 +60,8 @@
             android:foregroundTintMode="src_over"
             android:textColorHint="#325b29"
             android:enabled="true"
-            android:focusableInTouchMode="true"
-            android:focusable="true" />
+            android:focusableInTouchMode="false"
+            android:focusable="false" />
 
         <CheckBox
             android:layout_width="match_parent"
@@ -71,8 +71,8 @@
             android:foregroundTintMode="src_over"
             android:textColorHint="#325b29"
             android:enabled="true"
-            android:focusableInTouchMode="true"
-            android:focusable="true"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
             />
 
         <CheckBox
@@ -83,8 +83,9 @@
             android:foregroundTintMode="src_over"
             android:textColorHint="#325b29"
             android:enabled="true"
-            android:focusableInTouchMode="true"
-            android:focusable="true" />
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:onClick="activeroptionsaisiedetaillee" />
 
         <CheckBox
             android:layout_width="match_parent"
@@ -95,8 +96,10 @@
             android:foregroundTintMode="src_over"
             android:textColorHint="#325b29"
             android:enabled="true"
-            android:focusableInTouchMode="true"
-            android:focusable="true" />
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:onClick="activeroptionsaisiedetaillee"
+            android:clickable="true" />
 
         <CheckBox
             android:layout_width="match_parent"
@@ -106,8 +109,10 @@
             android:foregroundTintMode="src_over"
             android:textColorHint="#325b29"
             android:enabled="true"
-            android:focusableInTouchMode="true"
-            android:focusable="true" />
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:onClick="activeroptionsaisiedetaillee"
+            android:clickable="true" />
 
         <CheckBox
             android:layout_width="match_parent"
@@ -117,9 +122,10 @@
             android:foregroundTintMode="src_over"
             android:textColorHint="#325b29"
             android:enabled="true"
-            android:focusableInTouchMode="true"
-            android:focusable="true"
-            android:layout_gravity="center_horizontal" />
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:layout_gravity="center_horizontal"
+            android:onClick="activeroptionsaisiedetaillee" />
 
         <CheckBox
             android:layout_width="match_parent"
@@ -129,9 +135,10 @@
             android:foregroundTintMode="src_over"
             android:textColorHint="#325b29"
             android:enabled="true"
-            android:focusableInTouchMode="true"
-            android:focusable="true"
-            android:layout_gravity="center_horizontal" />
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:layout_gravity="center_horizontal"
+            android:onClick="activeroptionsaisiedetaillee" />
 
         <CheckBox
             android:layout_width="match_parent"
@@ -141,8 +148,9 @@
             android:foregroundTintMode="src_over"
             android:textColorHint="#325b29"
             android:enabled="true"
-            android:focusableInTouchMode="true"
-            android:focusable="true" />
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:onClick="activeroptionsaisiedetaillee" />
 
         <CheckBox
             android:layout_width="match_parent"
@@ -152,8 +160,9 @@
             android:foregroundTintMode="src_over"
             android:textColorHint="#325b29"
             android:enabled="true"
-            android:focusableInTouchMode="true"
-            android:focusable="true" />
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:onClick="activeroptionsaisiedetaillee" />
 
         <CheckBox
             android:layout_width="match_parent"
@@ -163,9 +172,10 @@
             android:foregroundTintMode="src_over"
             android:textColorHint="#325b29"
             android:enabled="true"
-            android:focusableInTouchMode="true"
-            android:focusable="true"
-            android:layout_gravity="center_horizontal" />
+            android:focusableInTouchMode="false"
+            android:focusable="false"
+            android:layout_gravity="center_horizontal"
+            android:onClick="activeroptionsaisiedetaillee" />
 
         <CheckBox
             android:layout_width="match_parent"
@@ -175,8 +185,8 @@
             android:foregroundTintMode="src_over"
             android:textColorHint="#325b29"
             android:enabled="true"
-            android:focusableInTouchMode="true"
-            android:focusable="true"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
             android:layout_gravity="center_horizontal"
             android:gravity="center_vertical"
             android:layout_weight="0.21"
@@ -190,8 +200,8 @@
             android:foregroundTintMode="src_over"
             android:textColorHint="#325b29"
             android:enabled="true"
-            android:focusableInTouchMode="true"
-            android:focusable="true"
+            android:focusableInTouchMode="false"
+            android:focusable="false"
             android:gravity="center_vertical"
             android:layout_weight="0.21"
             android:nestedScrollingEnabled="false"

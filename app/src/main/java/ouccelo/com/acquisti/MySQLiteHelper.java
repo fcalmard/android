@@ -76,11 +76,13 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
     public static final String COLUMN_DSLISTE = "idliste";// SI MODE LISTE INTEGER OU IDENTIFIANT LISTE SELECTIONEE OUI 1 0
     public static final String COLUMN_DSACHATS = "estachete";// SI MODE ACHAT INTEGER OUI O 10
 
-    public static final String SQL_INIT_LISTES=" "+COLUMN_DSLISTE;
-
     public static final String TABLE_FAMILLES = "familles";
 
-    public static final String RECH_TABLE_PARAM_ALL = "select "+COLUMN_ID+","+PARAM_COLUMN_VBD+","+PARAM_COLUMN_MODEENCOURS+" from "+TABLE_PARAM;
+    //TABLE_PARAM
+    /*
+    champ filtresurliste active
+     */
+    public static final String COLUMN_PARFILTRELISTE = "filtresurliste";
 
     private static final String DATABASE_NAME = "articles.db";
 
@@ -173,7 +175,7 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
 
             int derniereversionbd;
 
-            derniereversionbd=5;
+            derniereversionbd=6;
 
             if(nbc>0)
             {
@@ -232,6 +234,7 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
             this.majBaseDeDonnees(context,db,3);
             this.majBaseDeDonnees(context,db,4);
             this.majBaseDeDonnees(context,db,5);
+            this.majBaseDeDonnees(context,db,6);
 
             //Log.d("CtrlVBD","333");
 
@@ -383,17 +386,6 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
 
                 String sqlalterart2 = "ALTER TABLE "+TABLE_ARTICLES+" DROP COLUMN "+COLUMN_PUHT+" REAL DEFAULT 0;";
 
-                /*sqlalterart = sqlalterart + " DROP COLUMN "+COLUMN_TXTVA;
-                sqlalterart = sqlalterart + " DROP COLUMN "+COLUMN_PUTTC;
-                sqlalterart = sqlalterart + " DROP COLUMN "+COLUMN_QTE;
-
-                sqlalterart = sqlalterart + " DROP COLUMN "+COLUMN_DSLISTE;
-                sqlalterart = sqlalterart + " DROP COLUMN "+COLUMN_DSACHATS;*/
-
-                //String sqlalterparam = "ALTER TABLE "+TABLE_PARAM+" DROP COLUMN "+PARAM_COLUMN_MODECONTROLE;
-                //sqlalterparam=sqlalterparam+ "ALTER TABLE "+TABLE_PARAM+" DROP COLUMN "+PARAM_COLUMN_FAMENCOURS;
-
-               ////Log.v("MYSQLHELPER","436 sqlalterart"+sqlalterart);
                 //Log.v("MYSQLHELPER maj table PARAM ",sqlparam);
 
                 try {
@@ -518,7 +510,29 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
                 this.MiseAJourParamVersionBase(context,db,version+1);
 
                 Log.d("FINALLY MAJVBD 5","FIN TRAITEMENT MISE A JOUR VERSION BD VERSION="+version);
+                break;
+            case 6:
+                //
 
+                sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARFILTRELISTE+" INTEGER DEFAULT 0;";
+
+                try {
+                    db.execSQL(sqlparam1);
+
+                }catch (SQLiteException e)
+                {
+                    Log.d("ERREUR MAJVBD 6 "+e.getMessage().toString(),""+sqlparam1);
+
+                }finally {
+                    Log.d("FINALLY MAJVBD 6","FINALLY MISE A JOUR VERSION BD VERSION="+version);
+
+                }
+                Log.d("FINALLY MAJVBD 6","FIN TRAITEMENT MISE A JOUR VERSION BD VERSION="+version);
+
+                this.MiseAJourParamVersionBase(context,db,version+1);
+
+
+                break;
             default:
                 break;
         }
@@ -540,7 +554,10 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
                 ,MySQLiteHelper.PARAM_COLUMN_MODEENCOURS
                 ,MySQLiteHelper.PARAM_COLUMN_MODECONTROLE
                 ,MySQLiteHelper.PARAM_COLUMN_LISTEENCOURS
-                ,MySQLiteHelper.PARAM_COLUMN_FAMENCOURS};
+                ,MySQLiteHelper.PARAM_COLUMN_FAMENCOURS
+                ,MySQLiteHelper.COLUMN_PARGESTARTPUTTC
+                ,MySQLiteHelper.COLUMN_PARFILTRELISTE
+        };
 if(version>4)
 {
     allColumns=pds.allColumns;

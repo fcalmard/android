@@ -42,6 +42,7 @@ public class ParamDataSource {
             ,MySQLiteHelper.COLUMN_PARGESTARTPUHT
             ,MySQLiteHelper.COLUMN_PARGESTARTTVA
             ,MySQLiteHelper.COLUMN_PARGESTARTPUTTC
+            ,MySQLiteHelper.COLUMN_PARFILTRELISTE
 
     };
 
@@ -114,8 +115,6 @@ public class ParamDataSource {
             if(cursor.getCount()>0)
             {
                 cursor.moveToFirst();
-
-
                //Log.v("PARAMDTS","85");
                 newParam = cursorToParam(cursor);
                //Log.v("PARAMDTS","87");
@@ -143,12 +142,12 @@ public class ParamDataSource {
 
         values.put(MySQLiteHelper.PARAM_COLUMN_LISTEENCOURS, param.getListeEnCours());
 
-        Log.d("PARAMDTS","146, insertion PARAM param.getversionBd()= "+param.getversionBd());
+      //Log.d("PARAMDTS","146, insertion PARAM param.getversionBd()= "+param.getversionBd());
 
         if(param.getversionBd()>4)
         {
 
-            Log.d("PARAMDTS","151, insertion PARAM param.getversionBd()= "+param.getversionBd());
+          //Log.d("PARAMDTS","151, insertion PARAM param.getversionBd()= "+param.getversionBd());
 
             values.put(MySQLiteHelper.COLUMN_PARRECOVOVALE, param.getBrecovocale());
 
@@ -161,6 +160,7 @@ public class ParamDataSource {
             values.put(MySQLiteHelper.COLUMN_PARGESTARTPUHT, param.getBsaisiedetailartpuht());
             values.put(MySQLiteHelper.COLUMN_PARGESTARTTVA, param.getBsaisiedetailarttva());
             values.put(MySQLiteHelper.COLUMN_PARGESTARTPUTTC, param.getBsaisiedetailartputtc());
+            values.put(MySQLiteHelper.COLUMN_PARFILTRELISTE, param.getBfiltreliste());
         }
 
 
@@ -293,14 +293,12 @@ public class ParamDataSource {
 
         }
         icol++;
-
         param.setBmodectrl(ctrlactive==1);
 
         Long listeid= Long.valueOf(0);
         if (icol<cursor.getColumnCount())
         {
             listeid=cursor.getLong(4);
-
         }
         param.setListeencours(listeid);
         icol++;
@@ -309,12 +307,11 @@ public class ParamDataSource {
         if (icol<cursor.getColumnCount())
         {
             lf=cursor.getLong(5);
-
         }
         param.setFamilleEnCours(lf);
         icol++;
 
-        Log.v("PDS, CURSORTOPARAM","247 LECTURE listeid="+listeid+" ID="+id);
+      //Log.v("PDS, CURSORTOPARAM","247 LECTURE listeid="+listeid+" ID="+id);
 
         ctrlactive=0;
         if (icol<cursor.getColumnCount())
@@ -324,7 +321,7 @@ public class ParamDataSource {
         icol++;
         param.setBrecovocale(ctrlactive==1);
 
-        Log.v("PDS, CURSORTOPARAM","253");
+      //Log.v("PDS, CURSORTOPARAM","253");
         ctrlactive=0;
         if (icol<=cursor.getColumnCount())
         {
@@ -396,6 +393,15 @@ public class ParamDataSource {
         }
         icol++;
         param.setBsaisiedetailartputtc(ctrlactive==1);
+
+
+        ctrlactive=0;
+        if (icol<=cursor.getColumnCount())
+        {
+            ctrlactive=cursor.getInt(16);//COLUMN_PARFILTRELISTE
+        }
+        icol++;
+        param.setBfiltreliste(ctrlactive==1);
 
         return param;
     }

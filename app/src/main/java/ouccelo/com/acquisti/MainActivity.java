@@ -3,15 +3,15 @@ package ouccelo.com.acquisti;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.AvoidXfermode;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AlertDialog;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.util.TypedValue;
 import android.view.Gravity;
@@ -26,7 +26,9 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -40,6 +42,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static android.widget.AdapterView.*;
+import android.app.AlertDialog;
+import android.app.AlertDialog.Builder;
+import android.app.Dialog;
+import android.content.DialogInterface;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -51,6 +57,9 @@ public class MainActivity extends AppCompatActivity
     private GoogleApiClient client;
     private ArrayAdapter<Famille> myAdapter;
         private ArrayAdapter<Article> myAdapterArt;
+
+    private static final int DIALOG_ALERT = 10;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,9 +72,6 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onClick(View view) {
                 Close(view);
-                /*Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();*/
-
             }
         });
 
@@ -177,39 +183,22 @@ public class MainActivity extends AppCompatActivity
             @Override
             public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id)
             {
-                //Log.v("MAINACT","177 FAMILLE SELECTIONNEE");
                 if(selectedItemView !=null)
                 {
                     ParamDataSource pdts = new ParamDataSource(selectedItemView.getContext());
                     pdts.open();
-                    //MySQLiteHelper.PARAM_COLUMN_LISTEENCOURS
-                    //Log.v("MAIN ONITEMSELECTED","183 listeid="+id);
-
                     Param param=pdts.LectureParam();
-                    //Log.v("MAIN ONITEMSELECTED","188 listeid="+id);
-
                     if(id!=-1)
                     {
                         param.setFamilleEnCours(id);
-
                         pdts.updateParam(param);
-
                         pdts.close();
-
-                        //Log.v("MAINACT","198, LISTE SELECTIONNEE ID="+id);
-
                         AfficheArticles();
-
                     }
                 }else
                 {
-                    //Log.v("MAINACT","202 TOUTE FAMILLE SELECTIONNEE");
                     ParamDataSource pdts = new ParamDataSource(selectedItemView.getContext());
-                    //Log.v("MAINACT","203 TOUTE FAMILLE SELECTIONNEE");
-
                 }
-
-
             }
 
             @Override
@@ -217,8 +206,7 @@ public class MainActivity extends AppCompatActivity
             {
             }
         });
-        //spinner_famille.setOnItemClickListener(new SpinnerFamilleListener());
-        //Log.v("MAINACT","220 FAMILLE ID="+lidfamille.intValue());
+
         spinner_famille.setSelection(lidfamille.intValue(),true);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -244,6 +232,74 @@ public class MainActivity extends AppCompatActivity
 
             datasourcefam.close();
         }
+    public void AjoutArticles(View view)
+    {
+        final Context context = this;
+
+        AlertDialog.Builder adb = new AlertDialog.Builder(context);
+
+        adb.setIcon(android.R.drawable.ic_dialog_alert);
+
+        int s = R.string.msgajoutart;
+
+        adb.setTitle(s);
+
+        adb.setPositiveButton("Ok", null);
+
+        adb.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+
+                ParamDataSource dtsparam = new ParamDataSource(context);
+                dtsparam.open();
+                Param nParam=new Param();
+                nParam=dtsparam.LectureParam();
+                dtsparam.close();
+
+                long idfamille=0;
+                long lid= nParam.getListeEnCours();
+                if(lid!=0)
+                {
+                    final ArticleDataSource datasourceart = new ArticleDataSource(context);
+                    datasourceart.open();
+                    Long idliste=nParam.getListeEnCours();
+
+                    idfamille=nParam.getFamilleEnCours();
+
+                    boolean bFiltreliste=nParam.getBfiltreliste();
+
+                    final String modeEnCours=nParam.getModeencours();
+
+                    List<Article> listValuesArt = datasourceart.getAllArticles(idfamille,"",modeEnCours,nParam.getBmodectrl(),idliste,bFiltreliste);
+
+                    for (Article art : listValuesArt)
+                    {
+                        majArticle(datasourceart,art,modeEnCours,lid);
+
+                    }
+                    datasourceart.close();
+
+                    AfficheArticles();
+
+                  //  finish();
+
+                    //startActivity(getIntent());
+
+                }
+
+            }
+
+        });
+
+        adb.setNegativeButton(R.string.no, null);
+
+        adb.setMessage(s);
+
+        adb.show();
+
+
+    }
     /*
 
      */
@@ -251,7 +307,7 @@ public class MainActivity extends AppCompatActivity
     {
 
         final Context context = this;
-       //Log.v("MAINACT AfficheArticles","188");
+        //Log.v("MAINACT AfficheArticles","322");
 
         AppBarLayout.LayoutParams lp1 = new AppBarLayout.LayoutParams(DrawerLayout.LayoutParams.MATCH_PARENT,
                 DrawerLayout.LayoutParams.MATCH_PARENT);
@@ -264,7 +320,6 @@ public class MainActivity extends AppCompatActivity
 
         AppBarLayout.LayoutParams lpfill = new AppBarLayout.LayoutParams(DrawerLayout.LayoutParams.FILL_PARENT,
                 DrawerLayout.LayoutParams.FILL_PARENT);
-       //Log.v("MAINACT AfficheArticles","201");
 
         Spinner spinner_famille = (Spinner) findViewById(R.id.spinner_famille);
 
@@ -274,31 +329,26 @@ public class MainActivity extends AppCompatActivity
         Param nParam=new Param();
 
         MySQLiteHelper mysqlhlpr=new MySQLiteHelper(context);
-        //Log.v("AfficheArticles","454");
         ParamDataSource dtsparam = new ParamDataSource(context);
-        //Log.v("AfficheArticles","456");
-        //mysqlhlpr.LectureParam(this,dtsparam.getDatabase());
-        //Log.v("AfficheArticles","458");
         dtsparam.open();
-        //Log.v("AfficheArticles","460");
         nParam=dtsparam.LectureParam();
         final String modeEnCours=nParam.getModeencours();
 
         Long idfamille=nParam.getFamilleEnCours();
-       //Log.v("AfficheArticles","287 idfamille="+idfamille);
         spinner_famille.setSelection(idfamille.intValue(),true);
 
         //idfamille= 0L;
 
         Long listeid=nParam.getListeEnCours();
 
-       //Log.v("MAIN","249 MODEENCOURS >"+modeEnCours+" FAMILLE="+idfamille+" LISTEID="+listeid);
+        Log.v("MAIN","344 MODEENCOURS >"+modeEnCours+" FAMILLE="+idfamille+" LISTEID="+listeid);
 
         //Param oParam=mysqlhlpr.MiseAJourParam(context,dtsparam.getDatabase(),false,MySQLiteHelper.PARAM_MAJ_CTRLMODE,nParam);
 
         //bCtrlActive
+        boolean bFiltreliste=nParam.getBfiltreliste();
 
-        List<Article> listValuesArt = datasourceart.getAllArticles(idfamille,"",modeEnCours,nParam.getBmodectrl());
+        List<Article> listValuesArt = datasourceart.getAllArticles(idfamille,"",modeEnCours,nParam.getBmodectrl(),listeid,bFiltreliste);
 
         //Log.v("AfficheArticles","282 "+listValuesArt.toArray().length);
         myAdapterArt = new ArrayAdapter<Article>(this, R.layout.row_layout_article,
@@ -307,26 +357,60 @@ public class MainActivity extends AppCompatActivity
         final LinearLayout LinearLayoutlisteproduits = (LinearLayout) findViewById(R.id.idlisteproduits);
 
         LinearLayoutlisteproduits.removeAllViewsInLayout();
-        //Log.v("AfficheArticles","478");
         LinearLayoutlisteproduits.setBackgroundColor(Color.LTGRAY);
-        //Log.v("AfficheArticles","480");
         final LinearLayout gabaritListeDet = new LinearLayout (this);
         gabaritListeDet. setGravity(Gravity.LEFT);
-        //Log.v("AfficheArticles","483");
         gabaritListeDet.setOrientation(LinearLayout.VERTICAL);
-        //Log.v("AfficheArticles","485");
         gabaritListeDet.removeAllViewsInLayout();
-
-        gabaritListeDet.setPadding(25,25,0,0);
+        gabaritListeDet.setPadding(10,10,0,0);
 
         //String modeEnCours = MySQLiteHelper.PARAM_MODEENCOURS_LISTE;//                oParam.getModeencours();
         //Log.v("AfficheArticles","491");
-        boolean bmodeliste=modeEnCours.equals(MySQLiteHelper.PARAM_MODEENCOURS_LISTE);
+        final boolean bmodeliste=modeEnCours.equals(MySQLiteHelper.PARAM_MODEENCOURS_LISTE);
         //Log.v("AfficheArticles","493");
         //famille selectionnees
         int ifamsel = 0;// oParam.
 
+        ImageButton imgButtonAjoutMultiple = (ImageButton) findViewById(R.id.imgButtonAjoutMultiple);
+
+        int visible=0;
+        if(bmodeliste)
+        {
+            visible=View.VISIBLE;
+        }else
+        {
+            visible=View.INVISIBLE;
+        }
+        final ImageButton ImageBtnFiltreListe = (ImageButton) findViewById(R.id.imageBtnFiltreLst);
+        if(bFiltreliste)
+        {
+            ImageBtnFiltreListe.setImageResource(R.drawable.filtrelst);
+
+        }else
+        {
+            ImageBtnFiltreListe.setImageResource(R.drawable.sansfiltre);
+
+        }
+
+        ImageBtnFiltreListe.setVisibility(visible);
+        imgButtonAjoutMultiple.setVisibility(visible);
+        ImageBtnFiltreListe.setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            ParamDataSource dtsparam = new ParamDataSource(context);
+            dtsparam.open();
+            Param nParam=dtsparam.LectureParam();
+            boolean bFiltreliste=nParam.getBfiltreliste();
+            nParam.setBfiltreliste(!bFiltreliste);
+            dtsparam.updateParam(nParam);
+            dtsparam.close();
+            AfficheArticles();
+            }
+        });
+
+
         int iart=0;
+        int iCptrArtAAcheter=0;
 
         for (Article art : listValuesArt)
         {
@@ -341,10 +425,9 @@ public class MainActivity extends AppCompatActivity
             btnach.setBackground(null);
 
             btnach.setTag(art);
+            btnach.setX(5);
 
-            btnach.setOnClickListener(new View.OnClickListener() {
-
-                //int idbtn=btnach.getId();
+            btnach.setOnClickListener(new OnClickListener() {
 
                 @Override
                 public void onClick(View view)
@@ -381,11 +464,14 @@ public class MainActivity extends AppCompatActivity
                     {
                         lid=0;
                     }
-
+                    datasourceart.open();
                     majArticle(datasourceart,art,modeEnCours,lid);
+                    datasourceart.close();
 
-                    finish();
-                    startActivity(getIntent());
+                    AfficheArticles();
+
+                    //Toast.makeText(MainActivity.this, " MAJART= "+art.getLibelle()+" "+lid, Toast.LENGTH_LONG).show();
+
 
                 }
             });
@@ -397,29 +483,30 @@ public class MainActivity extends AppCompatActivity
             gabaritDet. setGravity(Gravity.LEFT|Gravity.START);
 
             gabaritDet.setClickable(true);
+            gabaritDet.setX(0);
+
 
             /*
             bouton image detail ligne de course
              */
+            if(nParam.getBsaisiedetailart())
+            {
+                ImageButton imgbutdetail = new ImageButton(context);
+                imgbutdetail.setBackgroundResource(R.drawable.edit);
+                imgbutdetail.setMaxWidth(5);
+                imgbutdetail.setMaxHeight(5);
 
-            ImageButton imgbutdetail = new ImageButton(context);
-            imgbutdetail.setBackgroundResource(R.drawable.edit);
-            imgbutdetail.setMaxWidth(5);
-            imgbutdetail.setMaxHeight(5);
+                imgbutdetail.setX(0);
 
-            imgbutdetail.setX(2);
+                gabaritDet.addView(imgbutdetail);
+            }
 
-            gabaritDet.addView(imgbutdetail);
 
             TextView texttv = new TextView(context);
 
             texttv.setX(5);
 
-            String libelle=art.getLibelle();//+" LISTE= "+art.getIdliste();
-
             texttv.setText(art.toString());
-
-            //Log.v("COMPTEUR ", String.valueOf(Integer.valueOf(iart)));
 
             texttv.setHeight(100);
 
@@ -436,12 +523,21 @@ public class MainActivity extends AppCompatActivity
             int w=700;
             //OrientationHelper.HORIZONTAL
 
+            DisplayMetrics metrics = new DisplayMetrics();
+            getWindowManager().getDefaultDisplay().getMetrics(metrics);
+
+            int wmetrics=metrics.widthPixels;
+
             int oi = getResources().getConfiguration().orientation ;
             //Log.v("MAIN ACTIVITY","Portrait-517 OI="+oi);
 
             if (oi == 1)
             {
-                w=330;//portrait
+                w=350;// android 4.4
+
+                w=wmetrics-220;
+                w=300;//portrait android 5.5 lollipop
+
             }
             else
             {
@@ -455,7 +551,74 @@ public class MainActivity extends AppCompatActivity
 
             texttv.setWidth(w);
 
-            gabaritDet.addView(texttv);
+            //ImageButton imgbuttexte = new ImageButton(context);
+            Button imgbuttexte = new Button(context);
+            //imgbuttexte.setBackgroundResource(R.drawable.edit);
+            //imgbuttexte.setMaxWidth(5);
+            //imgbuttexte.setMaxHeight(5);
+
+            //imgbuttexte.setText(art.getLibelle()+" "+art.getIdliste()+" "+art.getEstachete());
+            imgbuttexte.setText(art.getLibelle());
+
+            imgbuttexte.setWidth(w);
+            imgbuttexte.setX(10);
+            imgbuttexte.setTag(art);
+            setFont(imgbuttexte,"RobotoCondensed-Bold.ttf");
+            imgbuttexte.setTextSize(20);
+            if(art.getIdliste()!=0)
+            {
+                imgbuttexte.setBackgroundResource(R.color.colorVert);
+
+            }else
+            {
+                imgbuttexte.setBackgroundResource(R.color.colorOrange);
+
+            }
+            imgbuttexte.setOnClickListener(new OnClickListener() {
+               @Override
+               public void onClick(View view)
+               {
+
+                   int id=view.getId();
+
+                   Article art = (Article) view.getTag();
+
+                   long l=0;
+
+                   //Log.v("ONCLICK"," 321 ARTICLE "+art.toString());
+
+                   ParamDataSource pdts = new ParamDataSource(view.getContext());
+                   pdts.open();
+                   //MySQLiteHelper.PARAM_COLUMN_LISTEENCOURS
+
+                   Param param=pdts.LectureParam();
+
+                   long lid= param.getListeEnCours();
+
+                   pdts.close();
+
+                    /*
+                    on enleve l'article de la liste
+                     */
+                   if(art.getIdliste()!=0)
+                   {
+                       lid=0;
+                   }
+                   datasourceart.open();
+                   majArticle(datasourceart,art,modeEnCours,lid);
+                   datasourceart.close();
+
+                   AfficheArticles();
+
+
+
+               }
+
+            });
+
+            gabaritDet.addView(imgbuttexte);
+
+            //gabaritDet.addView(texttv);
 
             /*
             tester statut dans liste ou achat en fonction du mode
@@ -481,9 +644,10 @@ public class MainActivity extends AppCompatActivity
                 }else
                 {
                     btnach.setImageResource(R.drawable.basket);
+                    iCptrArtAAcheter++;
 
                 }
-                //Log.v("MAIN ACTIVITY","MODE 591 "+MySQLiteHelper.PARAM_MODEENCOURS_ACHAT);
+                //Log.v("MAIN ACTIVITY","MODE 642 "+MySQLiteHelper.PARAM_MODEENCOURS_ACHAT+" CPTR="+iCptrArtAAcheter);
             }
             gabaritDet.addView(btnach);
 
@@ -499,7 +663,64 @@ public class MainActivity extends AppCompatActivity
 
         }
 
-        //Log.v("MAIN","560");
+        datasourceart.close();
+
+        if(iCptrArtAAcheter==0 & !bmodeliste)
+        {
+           //Toast.makeText(MainActivity.this, " NBARTICLES= "+iCptrArtAAcheter, Toast.LENGTH_LONG).show();
+
+            //msg_courses_terminees
+            //imgbuttexte
+            int w=700;
+            //OrientationHelper.HORIZONTAL
+
+            int oi = getResources().getConfiguration().orientation ;
+            //Log.v("MAIN ACTIVITY","Portrait-517 OI="+oi);
+
+            if (oi == 1)
+            {
+                w=330;//portrait
+            }
+            else
+            {
+                if (oi == 2)
+                {
+                    w=700;//paysage
+                }
+            }
+            //
+
+            /*final Drawable drawable = getDrawable(R.drawable.warning);
+            //final Drawable drawable = R.drawable.ajout;
+
+            ImageView image = new ImageView(context);
+
+            image.setImageDrawable(drawable);
+
+            gabaritListeDet.addView(image);*/
+           // image.setImageDrawable(R.drawable.warning);
+
+            TextView texttv = new TextView(context);
+
+            texttv.setX(5);
+
+            texttv.setText(R.string.msg_courses_terminees);
+            texttv.setTextAlignment(TEXT_ALIGNMENT_CENTER);
+
+
+            texttv.setHeight(100);
+
+            texttv.setTextSize(TypedValue.COMPLEX_UNIT_PX, 40);
+
+            //texttv.setTextSize(500,40);
+            //setFont(textView3,"CURSTOM-FONT2.ttf");
+            texttv.setTextColor(Color.BLUE);
+
+            // setFont(texttv,"Roboto-Light.ttf");
+            setFont(texttv,"RobotoCondensed-Bold.ttf");
+            texttv.setWidth(w);
+            gabaritListeDet.addView(texttv);
+        }
 
         LinearLayoutlisteproduits.addView(gabaritListeDet);
 
@@ -515,7 +736,7 @@ public class MainActivity extends AppCompatActivity
 
         final ImageButton imagebuttonMode = (ImageButton) findViewById(R.id.imageBtnMode);
 
-        imagebuttonMode.setOnClickListener(new View.OnClickListener() {
+        imagebuttonMode.setOnClickListener(new OnClickListener() {
 
             //int idbtn=btnach.getId();
 
@@ -551,28 +772,13 @@ public class MainActivity extends AppCompatActivity
                     //Toast.makeText(MainActivity.this, " 467 PASSE EN MODE LISTE getModeencours= "+nParam.getModeencours(), Toast.LENGTH_LONG).show();
                 }
 
-                boolean bmaj=mysqlhlpr.MiseAJourParam(view.getContext(),nParam);
+                mysqlhlpr.MiseAJourParam(view.getContext(),nParam);
 
-                //mysqlhlpr.MiseAJourParam2(context,dtsparam.getDatabase(),true,MySQLiteHelper.PARAM_MAJ_MODEENCOURS,nParam);
-                if(bmaj)
-                {
-
-                    //dtsparam.LectureParam();
-
-                    //
-                    //
-                    //Toast.makeText(MainActivity.this, " PARAMETRES MISE A JOUR getModeencours= "+nParam.getModeencours(), Toast.LENGTH_LONG).show();
-
-                }
-//
-
-                //Toast.makeText(MainActivity.this, " BUTTON MODE ", Toast.LENGTH_LONG).show();
+                //Toast.makeText(MainActivity.this, " BUTTON MODE >"+modeEnCours, Toast.LENGTH_LONG).show();
 
                 dtsparam.close();
 
-                finish();
-
-                startActivity(getIntent());
+                AfficheArticles();
 
             }
         });
@@ -593,9 +799,7 @@ public class MainActivity extends AppCompatActivity
         }
         //Log.v("MAIN ACT","711");
 
-        boolean ctrlact=false;//oParam.getBmodectrl();
-
-
+        boolean ctrlact=false;;
         ctrlact=nParam.getBmodectrl();
         if(ctrlact)
         {
@@ -630,7 +834,7 @@ public class MainActivity extends AppCompatActivity
 
         //Log.v("MAIN","704 MODEENCOURS>"+modeEnCours+"<");
 
-        imageBtnActiverModeCtrl.setOnClickListener(new View.OnClickListener() {
+        imageBtnActiverModeCtrl.setOnClickListener(new OnClickListener() {
 
             //int idbtn=btnach.getId();
 
@@ -664,34 +868,27 @@ public class MainActivity extends AppCompatActivity
 
                 Long listeid=nParam.getListeEnCours();
 
-               //Log.d("MAIN ACTIVITY CLICK", "LECTURE MODE EN COURS 580 >" + modeEnCours + "< ");
+                //Log.d("MAIN ACTIVITY CLICK", "LECTURE MODE EN COURS 580 >" + modeEnCours + "< ");
                 //Log.d("MAIN ACTIVITY CLICK", "LECTURE MODE EN COURS >" + modeEnCours + "< resultOfComparison=" + modeliste);
-
 
                 //mysqlhlpr.ControleVersionBaseDeDonnees(context,dtsparam.getDatabase());
 
                 //Log.v("MAIN","FIN TRAITEMENT VERSIONDATABASE >"+nversion+"<");
 
-
                 dtsparam.close();
 
-
-                finish();
-
-                startActivity(getIntent());
+                AfficheArticles();
 
             }
         });
 
         //Toast.makeText(MainActivity.this, " Fin Affichage Articles LISTE="+listeid+"FAMILLE="+idfamille+" MODE="+modeEnCours, Toast.LENGTH_LONG).show();
 
-
     }
     public void majArticle(ArticleDataSource datasourceart,Article art,String modeEnCours,long idliste) {
         /*
         tester mode liste mode achat
          */
-//        String[]  allColumns=datasourceart.allColumns;
 
         boolean modeachat=modeEnCours.equals(MySQLiteHelper.PARAM_MODEENCOURS_ACHAT);
 
@@ -721,37 +918,8 @@ public class MainActivity extends AppCompatActivity
 
                 datasourceart.updateArticle(art);
 
-                //ArticleDataSource dtsart = new ArticleDataSource();
-                // final ArticleDataSource datasourceart = new ArticleDataSource(this);
-
-
-                // String[] allColumns={MySQLiteHelper.COLUMN_LIBELLE,MySQLiteHelper.COLUMN_DSLISTE};
-/*
-                Cursor cursor = datasourceart.getDatabase().query(MySQLiteHelper.TABLE_ARTICLES,
-                        allColumns, MySQLiteHelper.COLUMN_ID + " = " + art.getId(), null,
-                        null, null, null);
-
-                cursor.moveToFirst();//.cursorToArticle(cursor);
-
-                //Log.v("MAJARTICLE","852, ID LISTE="+cursor.getLong(3));
-
-                Article lectArticle = datasourceart.cursorToArticle(cursor);
-
-                lectArticle.setIdliste(cursor.getLong(3));
-
-                lidliste=lectArticle.getIdliste();
-
-                cursor.close();
-
-                Log.v("MAJARTICLE","862 ID LISTE="+lidliste);
-
-                finish();
-                startActivity(getIntent());
-                */
-
             }
         }
-
     }
 
     /*
@@ -810,25 +978,168 @@ public class MainActivity extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
 
+        //nParam
 
         if (item != null) {
+
+            ParamDataSource dtsparam = new ParamDataSource(this);
+
+            dtsparam.open();
+
+            //MySQLiteHelper mysqlhlpr=new MySQLiteHelper(context);
+
+            Param nParam= dtsparam.LectureParam();
+
+            boolean bSaisieManuelle=false;
+            boolean bSaisieManuelleArticles=false;
+            boolean bSaisieManuelleFamilles=false;
+            bSaisieManuelle=nParam.getBsaisiemanuelle();
+            bSaisieManuelleArticles=nParam.getBsaisiemanart();
+            bSaisieManuelleFamilles=nParam.getBsaisiemanfamille();
+
+            dtsparam.close();
+
             int id = item.getItemId();
 
             if (id == R.id.nav_managefamilles) {
                 /*
                 familles
                  */
-                final Intent intent = new Intent(MainActivity.this, Familles.class);
-                startActivity(intent);
-                AfficheFamilles();
+                if(!bSaisieManuelle )
+                {
+                    AlertDialog.Builder adb = new AlertDialog.Builder(this);
+
+                    adb.setIcon(android.R.drawable.ic_dialog_alert);
+
+                    int s = R.string.lib_saismanuelle_nonaccess;
+
+                    adb.setTitle(s);
+
+                    adb.setPositiveButton("Ok", null);
+
+                    adb.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+
+                        }
+
+                    });
+
+                    //adb.setNegativeButton(R.string.no, null);
+
+                    adb.setMessage(s);
+
+                    adb.show();
+                }else
+                {
+                    if(bSaisieManuelleFamilles)
+                    {
+                        final Intent intent = new Intent(MainActivity.this, Familles.class);
+                        startActivity(intent);
+                        AfficheFamilles();
+                    }else
+                    {
+                        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+
+                        adb.setIcon(android.R.drawable.ic_dialog_alert);
+
+                        int s = R.string.lib_saismanfam_nonaccess;
+
+                        adb.setTitle(s);
+
+                        adb.setPositiveButton("Ok", null);
+
+                        adb.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+
+                            }
+
+                        });
+
+                        //adb.setNegativeButton(R.string.no, null);
+
+                        adb.setMessage(s);
+
+                        adb.show();
+                    }
+
+                }
+
 
             } else if (id == R.id.nav_managearticles) {
                 /*
                 articles
                  */
-                final Intent intent = new Intent(MainActivity.this, Articles.class);
-                startActivity(intent);
-                AfficheArticles();
+                if(bSaisieManuelle )
+                {
+                    if(bSaisieManuelleArticles)
+                    {
+                        final Intent intent = new Intent(MainActivity.this, Articles.class);
+                        startActivity(intent);
+                        AfficheArticles();
+                    }else
+                    {
+                        AlertDialog.Builder adb = new AlertDialog.Builder(this);
+
+                        adb.setIcon(android.R.drawable.ic_dialog_alert);
+
+                        int s = R.string.lib_saismanprod_nonaccess;
+
+                        adb.setTitle(s);
+
+                        adb.setPositiveButton("Ok", null);
+
+                        adb.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+
+                            }
+
+                        });
+
+                        //adb.setNegativeButton(R.string.no, null);
+
+                        adb.setMessage(s);
+
+                        adb.show();
+                    }
+
+                }else
+                {
+                    AlertDialog.Builder adb = new AlertDialog.Builder(this);
+
+                    adb.setIcon(android.R.drawable.ic_dialog_alert);
+
+                    int s = R.string.lib_saismanuelle_nonaccess;
+
+                    adb.setTitle(s);
+
+                    adb.setPositiveButton("Ok", null);
+
+                    adb.setPositiveButton(R.string.yes, new DialogInterface.OnClickListener() {
+
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+
+
+                        }
+
+                    });
+
+                    //adb.setNegativeButton(R.string.no, null);
+
+                    adb.setMessage(s);
+
+                    adb.show();
+                }
+
             } else if (id == R.id.nav_initlistes) {
 
                 InitListe();

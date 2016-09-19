@@ -41,7 +41,8 @@
         android:layout_weight="0.38"
         android:layout_below="@+id/spinner_liste"
         android:layout_marginTop="5dp"
-        android:layout_above="@+id/imageBtnMode">
+        android:layout_above="@+id/imageBtnMode"
+        android:id="@+id/linearLayout">
 
         <Spinner
             android:layout_width="match_parent"
@@ -110,8 +111,33 @@
         android:id="@+id/BtnActiverModeCtrl"
         style="@style/AppTheme"
         android:background="@drawable/controleb"
+        android:layout_alignParentBottom="true"
+        android:layout_toEndOf="@+id/imageBtnMode" />
+
+    <ImageButton
+        style="@style/AppTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imgButtonAjoutMultiple"
+        android:background="@drawable/ajoutmult"
+        android:visibility="visible"
+        android:layout_marginLeft="70dp"
+        android:clickable="true"
         android:layout_alignTop="@+id/imageBtnMode"
-        android:layout_toEndOf="@+id/imageBtnMode"
-        android:layout_marginTop="10dp" />
+        android:layout_toEndOf="@+id/relativeLayout"
+        android:layout_marginTop="0dp"
+        android:layout_marginRight="0dp"
+        android:layout_marginBottom="0dp"
+        android:onClick="AjoutArticles" />
+
+    <ImageButton
+        style="@style/AppTheme"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageBtnFiltreLst"
+        android:background="@drawable/filtrelst"
+        android:layout_alignTop="@+id/imgButtonAjoutMultiple"
+        android:layout_toEndOf="@+id/imgButtonAjoutMultiple"
+        android:clickable="true" />
 
 </RelativeLayout>
