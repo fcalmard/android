@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
 import android.util.Log;
 
 import java.util.ArrayList;
@@ -124,7 +125,13 @@ public class ListesDataSource {
             while (!cursor.isAfterLast()) {
                 Liste liste = cursorToListe(cursor);
                 listes.add(liste);
-                cursor.moveToNext();
+                try {
+                    cursor.moveToNext();
+
+                }catch (SQLiteException e)
+                {
+                    Log.v("LISTDTS",""+e.getMessage());
+                }
             }
             // make sure to close the cursor
             cursor.close();

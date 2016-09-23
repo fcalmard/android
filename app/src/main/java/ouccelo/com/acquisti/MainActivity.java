@@ -55,8 +55,10 @@ public class MainActivity extends AppCompatActivity
      * See https://g.co/AppIndexing/AndroidStudio for more information.
      */
     private GoogleApiClient client;
-    private ArrayAdapter<Famille> myAdapter;
-        private ArrayAdapter<Article> myAdapterArt;
+    private ArrayAdapter<Famille> myAdapterFam;
+    private ArrayAdapter<Article> myAdapterArt;
+    private ArrayAdapter<Liste> myAdapterLst;
+    private Spinner spinner_liste;
 
     private static final int DIALOG_ALERT = 10;
 
@@ -111,6 +113,9 @@ public class MainActivity extends AppCompatActivity
             Selection Liste
          */
         AfficheListes(listeid);
+        //AfficheListe2();
+       //Log.v("Main Acti","117");
+
 /*
         Spinner spinner_liste = (Spinner) findViewById(R.id.spinner_liste);
 
@@ -135,19 +140,20 @@ public class MainActivity extends AppCompatActivity
         listesDataSource.close();
         */
 
-
-
-
-
+        Log.v("Main Acti","143");
 
         /*
             Selection Famille
          */
         Spinner spinner_famille = (Spinner) findViewById(R.id.spinner_famille);
 
+        spinner_famille.setAdapter(myAdapterFam);
+
+       //Log.v("Main Acti","152");
+
+
         //Enfin on passe l'adapter au Spinner et c'est tout
        // spinner_famille.setAdapter(adapter);
-        spinner_famille.setAdapter(myAdapter);
 
         spinner_famille.setPrompt("Selectionnez une Famille");
         spinner_famille.setOnItemSelectedListener(new OnItemSelectedListener()
@@ -178,32 +184,69 @@ public class MainActivity extends AppCompatActivity
             {
             }
         });
-
+       //Log.v("Main Acti","187");
         spinner_famille.setSelection(lidfamille.intValue(),true);
+       //Log.v("Main Acti","189");
+
+       /* spinner_liste = (Spinner) findViewById(R.id.spinner_liste);
+
+        spinner_liste.setAdapter(myAdapterLst);
+        */
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+       //Log.v("Main Acti","197");
         navigationView.setNavigationItemSelectedListener(this);
-
+        Log.v("Main Acti","199");
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
+        Log.v("Main Acti","203");
     }
     private void AfficheFamilles()
-        {
-            FamillesDataSource datasourcefam = new FamillesDataSource(this);
-            datasourcefam.open();
+    {
+        FamillesDataSource datasourcefam = new FamillesDataSource(this);
+        datasourcefam.open();
 
-            List<Famille> listValues = datasourcefam.getAllFamilles(true);
-            myAdapter = new ArrayAdapter<Famille>(this, R.layout.row_layout_fam,
-                    R.id.listText, listValues);
-            Spinner spinner_famille = (Spinner) findViewById(R.id.spinner_famille);
+        List<Famille> listValues = datasourcefam.getAllFamilles(true);
+        myAdapterFam = new ArrayAdapter<Famille>(this, R.layout.row_layout_fam,
+                R.id.listText, listValues);
+        Spinner spinner_famille = (Spinner) findViewById(R.id.spinner_famille);
 
-            //Enfin on passe l'adapter au Spinner et c'est tout
-            // spinner_famille.setAdapter(adapter);
-            spinner_famille.setAdapter(myAdapter);
+        //Enfin on passe l'adapter au Spinner et c'est tout
+        // spinner_famille.setAdapter(adapter);
+        spinner_famille.setAdapter(myAdapterFam);
 
-            datasourcefam.close();
-        }
+        datasourcefam.close();
+    }
+    private void AfficheListe2()
+    {
+
+        spinner_liste = (Spinner) findViewById(R.id.spinner_liste);
+
+        //Log.v("AfficheListe2","215");
+        ListesDataSource datasourcelst = new ListesDataSource(this);
+       //Log.v("AfficheListe2","217");
+        datasourcelst.open();
+       //Log.v("AfficheListe2","219");
+       //Log.v("AfficheListe2","221");
+        List<Liste> listValues = datasourcelst.getAllListes(true);
+       //Log.v("AfficheListe2","223");
+        myAdapterLst = new ArrayAdapter<Liste>(this, R.layout.row_layout_lst,
+                R.id.listText, listValues);
+       //Log.v("AfficheListe2","226");
+        //Spinner spinner_liste = (Spinner) findViewById(R.id.spinner_liste);
+
+        //Enfin on passe l'adapter au Spinner et c'est tout
+        // spinner_famille.setAdapter(adapter);
+        //myAdapterLst.notifyDataSetChanged();
+       //Log.v("AfficheListe2","232");
+
+        spinner_liste.setAdapter(myAdapterLst);
+       //Log.v("AfficheListe2","235");
+
+        datasourcelst.close();
+       //Log.v("AfficheListe2","238");
+    }
     public void AjoutArticles(View view)
     {
         final Context context = this;
@@ -1046,7 +1089,12 @@ public class MainActivity extends AppCompatActivity
 
                 final Intent intent = new Intent(MainActivity.this, Listes.class);
                 startActivity(intent);
+                //AfficheListe2();
                 AfficheListes(Long.valueOf(0));
+                //AfficheArticles();
+                //finish();
+                //startActivity(getIntent());
+                return true;
 
             } else if (id == R.id.nav_managearticles) {
                 /*
@@ -1149,6 +1197,8 @@ public class MainActivity extends AppCompatActivity
         Long lidfamille=nParam.getFamilleEnCours();
 
         AfficheFamilles();
+
+        AfficheListes(Long.valueOf(0));
 
 
         dtsparam.close();
@@ -1357,7 +1407,7 @@ public class MainActivity extends AppCompatActivity
     }
     private void AfficheListes(Long listeid)
     {
-        Spinner spinner_liste = (Spinner) findViewById(R.id.spinner_liste);
+        spinner_liste = (Spinner) findViewById(R.id.spinner_liste);
 
         List exemple = new ArrayList();
 
@@ -1394,6 +1444,11 @@ public class MainActivity extends AppCompatActivity
 
         //Enfin on passe l'adapter au Spinner et c'est tout
         spinner_liste.setAdapter(adapter);
+
+
+        spinner_liste.removeAllViewsInLayout();
+        spinner_liste.destroyDrawingCache();
+        spinner_liste.animate();
 
         spinner_liste.setPrompt("Selectionnez une liste");
 
@@ -1432,6 +1487,9 @@ public class MainActivity extends AppCompatActivity
             {
             }
         });
+
+        adapter.notifyDataSetChanged();
+
 
     }
 }

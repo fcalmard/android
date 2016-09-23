@@ -26,11 +26,13 @@
         android:layout_height="wrap_content"
         android:id="@+id/spinner_liste"
         android:spinnerMode="dropdown"
-        android:clickable="false"
+        android:clickable="true"
         android:background="@android:color/holo_orange_light"
         android:popupBackground="@android:color/holo_blue_dark"
         android:layout_alignTop="@+id/relativeLayout"
-        android:layout_toEndOf="@+id/relativeLayout" />
+        android:layout_toEndOf="@+id/relativeLayout"
+        android:visibility="visible"
+        android:contextClickable="true" />
 
 
     <LinearLayout

@@ -162,8 +162,8 @@ public class ParamDataSource {
         values.put(MySQLiteHelper.COLUMN_PARFILTRELISTE, param.getBfiltreliste());
 
 
-        Log.d("UPDATEPARAM"," >ID >"+param.getId()+"<<<<<<");
-        Log.d("UPDATEPARAM"," >getBsaisiemanuelle >"+param.getBsaisiemanuelle()+"<<<<<<");
+       // Log.d("UPDATEPARAM"," >ID >"+param.getId()+"<<<<<<");
+       // Log.d("UPDATEPARAM"," >getBsaisiemanuelle >"+param.getBsaisiemanuelle()+"<<<<<<");
 
 		//Log.d("UPDATEPARAM"," VBD >>>>>>>"+param.getversionBd()+"<<<<<<");
 		//Log.d("UPDATEPARAM"," MODE >>>>>>>"+param.getModeencours()+"<<<<<<");
@@ -282,7 +282,7 @@ public class ParamDataSource {
         {
             Log.v("PDS","ERROR "+e.getMessage());
         }finally {
-            Log.v("PDS","FIN ");
+            //Log.v("PDS","FIN ");
         }
         return param;
     }

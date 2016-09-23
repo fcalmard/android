@@ -483,13 +483,13 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
 
         }catch (SQLiteException e)
         {
-            Log.d("ERREUR MAJVBD 7 ",""+e.getMessage().toString()+" version="+version);
+            //Log.d("ERREUR MAJVBD 7 ",""+e.getMessage().toString()+" version="+version);
 
         }finally {
-            Log.d("FINALLY MAJVBD 7","FINALLY MISE A JOUR VERSION BD VERSION="+version);
+            //Log.d("FINALLY MAJVBD 7","FINALLY MISE A JOUR VERSION BD VERSION="+version);
 
         }
-        Log.d("FINALLY MAJVBD 7","FIN TRAITEMENT MISE A JOUR VERSION BD VERSION="+version);
+        //Log.d("FINALLY MAJVBD 7","FIN TRAITEMENT MISE A JOUR VERSION BD VERSION="+version);
 
         this.MiseAJourParamVersionBase(context,db,7);
 
