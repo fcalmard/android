@@ -155,18 +155,7 @@ public class ArticleDataSource {
         famdts.getDatabase().execSQL(sql);
         sql=MySQLiteHelper.TABLE_CREATE_ARTICLE;
         famdts.getDatabase().execSQL(sql);
-        sql ="ALTER TABLE "+MySQLiteHelper.TABLE_ARTICLES+" ADD COLUMN "+MySQLiteHelper.COLUMN_PUHT+" REAL DEFAULT 0;";
-        famdts.getDatabase().execSQL(sql);
-        sql ="ALTER TABLE "+MySQLiteHelper.TABLE_ARTICLES+" ADD COLUMN "+MySQLiteHelper.COLUMN_TXTVA+" REAL DEFAULT 20.00;";
-        famdts.getDatabase().execSQL(sql);
-        sql ="ALTER TABLE "+MySQLiteHelper.TABLE_ARTICLES+" ADD COLUMN "+MySQLiteHelper.COLUMN_PUTTC+" REAL DEFAULT 0;";
-        famdts.getDatabase().execSQL(sql);
-        sql ="ALTER TABLE "+MySQLiteHelper.TABLE_ARTICLES+" ADD COLUMN "+MySQLiteHelper.COLUMN_QTE+" REAL DEFAULT 1;";
-        famdts.getDatabase().execSQL(sql);
-        sql ="ALTER TABLE "+MySQLiteHelper.TABLE_ARTICLES+" ADD COLUMN "+MySQLiteHelper.COLUMN_DSLISTE+" INTEGER DEFAULT 0;";
-        famdts.getDatabase().execSQL(sql);
-        sql ="ALTER TABLE "+MySQLiteHelper.TABLE_ARTICLES+" ADD COLUMN "+MySQLiteHelper.COLUMN_DSACHATS+" INTEGER DEFAULT 0;";
-        famdts.getDatabase().execSQL(sql);
+
 
         String slib="Légumes";
         famille=famdts.createFamille(slib);
@@ -183,7 +172,7 @@ public class ArticleDataSource {
             createArticle(new Article("Salade verte",famille.getId()));
             createArticle(new Article("Pommes de terre",famille.getId()));
             createArticle(new Article("asperges",famille.getId()));
-        //Log.v("ARTDTS, 184",slib);
+
         slib="Fruits";
         famille=famdts.createFamille(slib);
             createArticle(new Article("Pommes",famille.getId()));
@@ -192,14 +181,12 @@ public class ArticleDataSource {
             createArticle(new Article("Raisins",famille.getId()));
             createArticle(new Article("Pastéques",famille.getId()));
             createArticle(new Article("Melons",famille.getId()));
-        //Log.v("ARTDTS, 193",slib);
 
         slib="Traiteur Charcuterie, Poisson";
         famille=famdts.createFamille(slib);
             createArticle(new Article("Cote de boeuf",famille.getId()));
             createArticle(new Article("Cote d'agneaux",famille.getId()));
             createArticle(new Article("Poulet",famille.getId()));
-        //Log.v("ARTDTS, 200",slib);
 
         slib="Boissons";
         famille=famdts.createFamille(slib);
@@ -207,21 +194,19 @@ public class ArticleDataSource {
             createArticle(new Article("Eau Contrex 1Let demi",famille.getId()));
             createArticle(new Article("Vin rouge",famille.getId()));
             createArticle(new Article("Vin blanc",famille.getId()));
-        //Log.v("ARTDTS, 208",slib);
 
         slib="Boulangerie Patisserie";
         famille=famdts.createFamille(slib);
             createArticle(new Article("Pain",famille.getId()));
             createArticle(new Article("Croissants",famille.getId()));
-        //Log.v("ARTDTS, 214",slib);
+            createArticle(new Article("Pan Cakes",famille.getId()));
 
         slib="Petit déjeuner";
         famille=famdts.createFamille(slib);
             createArticle(new Article("Céréales",famille.getId()));
             createArticle(new Article("Café",famille.getId()));
             createArticle(new Article("Thé",famille.getId()));
-        createArticle(new Article("Sucre",famille.getId()));
-        //Log.v("ARTDTS, 222",slib);
+            createArticle(new Article("Sucre",famille.getId()));
 
         slib="Divers ingrédients";
         famille=famdts.createFamille(slib);
@@ -230,44 +215,35 @@ public class ArticleDataSource {
             createArticle(new Article("Huile olive",famille.getId()));
             createArticle(new Article("Vinaigre",famille.getId()));
             createArticle(new Article("Ail",famille.getId()));
-        //Log.v("ARTDTS, 231",slib);
 
         slib="Entretien droguerie";
         famille=famdts.createFamille(slib);
             createArticle(new Article("Serpillieres",famille.getId()));
             createArticle(new Article("Liquide lavage sol",famille.getId()));
-        //Log.v("ARTDTS, 237",slib);
 
         slib="Bricolage";
         famille=famdts.createFamille(slib);
-        //Log.v("ARTDTS, 241",slib+" "+famille.getId());
 
         slib="Desserts";
         famille=famdts.createFamille(slib);
-        //Log.v("ARTDTS, 245",slib+" "+famille.getId());
 
         slib="Fromages";
         famille=famdts.createFamille(slib);
             createArticle(new Article("Camenbert",famille.getId()));
             createArticle(new Article("Gruyere",famille.getId()));
-        //Log.v("ARTDTS, 251",slib+" "+famille.getId());
 
         slib="Hygiène";
         famille=famdts.createFamille(slib);
             createArticle(new Article("Liquide douche",famille.getId()));
             createArticle(new Article("Savon liquique",famille.getId()));
-        //Log.v("ARTDTS, 257",slib+" "+famille.getId());
 
         slib="Surgelés";
         famille=famdts.createFamille(slib);
-
             createArticle(new Article("Glaces",famille.getId()));
             createArticle(new Article("Pizza",famille.getId()));
             createArticle(new Article("Poelée",famille.getId()));
-        //Log.v("ARTDTS, 265",slib+" "+famille.getId());
 
         famdts.close();
-
 
 	}
 	public void razListe()
@@ -295,8 +271,6 @@ public class ArticleDataSource {
 
         if(sMode.equals(MySQLiteHelper.PARAM_MODEENCOURS_ACHAT))
         {
-
-
             if(iListe!=0)
             {
                 /*
@@ -382,7 +356,7 @@ public class ArticleDataSource {
 
 		cursor.moveToFirst();
 
-		Log.v("ART DATA SOURCE","ARTDTS 348 FILTRE >"+sFiltre+"< MODE >"+sMode+" NOMBRE ARTICLE="+cursor.getCount());
+		//Log.v("ART DATA SOURCE","ARTDTS 348 FILTRE >"+sFiltre+"< MODE >"+sMode+" NOMBRE ARTICLE="+cursor.getCount());
 
 		while (!cursor.isAfterLast()) {
 			Article article = cursorToArticle(cursor);

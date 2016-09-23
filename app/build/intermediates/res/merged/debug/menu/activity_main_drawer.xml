@@ -11,6 +11,10 @@
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/msggestart" />
         <item
+            android:id="@+id/nav_managelistes"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/msggestlistes" />
+        <item
             android:id="@+id/nav_initlistes"
             android:icon="@drawable/ic_menu_manage"
             android:title="@string/libelle_activity_initlistes" />

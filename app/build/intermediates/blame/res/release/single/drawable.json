@@ -160,12 +160,12 @@
         "source": "/home/francois/AndroidStudioProjects/Acquisti/app/src/main/res/drawable/kaddy.gif"
     },
     {
-        "merged": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/res/merged/release/drawable/box.png",
-        "source": "/home/francois/AndroidStudioProjects/Acquisti/app/src/main/res/drawable/box.png"
-    },
-    {
         "merged": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/res/merged/release/drawable/abc_text_cursor_material.xml",
         "source": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.0/res/drawable/abc_text_cursor_material.xml"
+    },
+    {
+        "merged": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/res/merged/release/drawable/box.png",
+        "source": "/home/francois/AndroidStudioProjects/Acquisti/app/src/main/res/drawable/box.png"
     },
     {
         "merged": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/res/merged/release/drawable/delete6.png",
@@ -252,12 +252,12 @@
         "source": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.0/res/drawable/abc_switch_thumb_material.xml"
     },
     {
-        "merged": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/res/merged/release/drawable/caddie.png",
-        "source": "/home/francois/AndroidStudioProjects/Acquisti/app/src/main/res/drawable/caddie.png"
-    },
-    {
         "merged": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/res/merged/release/drawable/design_fab_background.xml",
         "source": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/exploded-aar/com.android.support/design/24.2.0/res/drawable/design_fab_background.xml"
+    },
+    {
+        "merged": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/res/merged/release/drawable/caddie.png",
+        "source": "/home/francois/AndroidStudioProjects/Acquisti/app/src/main/res/drawable/caddie.png"
     },
     {
         "merged": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/res/merged/release/drawable/logomkt.png",
@@ -268,12 +268,12 @@
         "source": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.0/res/drawable/abc_item_background_holo_light.xml"
     },
     {
-        "merged": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/res/merged/release/drawable/abc_btn_check_material.xml",
-        "source": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.0/res/drawable/abc_btn_check_material.xml"
-    },
-    {
         "merged": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/res/merged/release/drawable/ajout3.png",
         "source": "/home/francois/AndroidStudioProjects/Acquisti/app/src/main/res/drawable/ajout3.png"
+    },
+    {
+        "merged": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/res/merged/release/drawable/abc_btn_check_material.xml",
+        "source": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.0/res/drawable/abc_btn_check_material.xml"
     },
     {
         "merged": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/res/merged/release/drawable/trash.png",
@@ -312,12 +312,12 @@
         "source": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/24.2.0/res/drawable/abc_btn_default_mtrl_shape.xml"
     },
     {
-        "merged": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/res/merged/release/drawable/warning.png",
-        "source": "/home/francois/AndroidStudioProjects/Acquisti/app/src/main/res/drawable/warning.png"
-    },
-    {
         "merged": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/res/merged/release/drawable/controleb.png",
         "source": "/home/francois/AndroidStudioProjects/Acquisti/app/src/main/res/drawable/controleb.png"
+    },
+    {
+        "merged": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/res/merged/release/drawable/warning.png",
+        "source": "/home/francois/AndroidStudioProjects/Acquisti/app/src/main/res/drawable/warning.png"
     },
     {
         "merged": "/home/francois/AndroidStudioProjects/Acquisti/app/build/intermediates/res/merged/release/drawable/checklist2.png",

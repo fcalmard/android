@@ -16,6 +16,8 @@
     <string name="msglistesinitialisees">Les listes ont été ré-initialisée(s)</string>
     <string name="msggestart">Gestion des articles</string>
     <string name="msggestfam">Gestion des familles</string>
+    <string name="msggestlistes">Gestion des listes</string>
+
     <string name="title_activity_articles">Articles</string>
     <string name="title_activity_familles">Familles</string>
     <string name="title_activity_initbd">initbd</string>
@@ -23,9 +25,9 @@
     <string name="libelle_activity_articles">Gestion des articles</string>
     <string name="libelle_activity_familles">Gestion des familles</string>
     <string name="msgsaisiefam">Saisissez une famille</string>
+    <string name="msgsaisieliste">Saisissez une liste</string>
     <string name="libelle_activity_initlistes">Initialiser Listes</string>
     <string name="msg_courses_terminees">Vos courses sont terminées</string>
-
 
 
     <string name="lib_toutesoptions">Activer toutes les options</string>
@@ -48,5 +50,6 @@
     <string name="lib_puht">Saisie du Prix Unitaire Ht</string>
     <string name="lib_tva">Tva</string>
     <string name="lib_puttc">Prix Unitaire TTC</string>
+    <string name="title_activity_listes">Listes</string>
     .
 </resources>

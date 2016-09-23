@@ -87,14 +87,18 @@ public class MainActivity extends AppCompatActivity
 
         MySQLiteHelper mssql = new MySQLiteHelper(this);
 
-        mssql.ControleVersionBaseDeDonnees(this, pdts.getDatabase());
+        //mssql.ControleVersionBaseDeDonnees(this, pdts.getDatabase());
 
         Param nParam = pdts.LectureParam();
+
+        //nParam.setListeencours(Long.valueOf(0));
+
+       // pdts.updateParam(nParam);
 
         Long listeid=nParam.getListeEnCours();
         Long lidfamille=nParam.getFamilleEnCours();
 
-        //Log.v("MAINACT CREATE","81 LISTEID="+listeid+" FAMILLEID="+lidfamille);
+        Log.v("MAINACT CREATE","81 LISTEID="+listeid+" FAMILLEID="+lidfamille);
 
         pdts.close();
 
@@ -106,65 +110,35 @@ public class MainActivity extends AppCompatActivity
         /*
             Selection Liste
          */
+        AfficheListes(listeid);
+/*
         Spinner spinner_liste = (Spinner) findViewById(R.id.spinner_liste);
 
         List exemple = new ArrayList();
+
         exemple.add("Choisir liste");
-        exemple.add("ma liste2");
-        exemple.add("ma liste3");
 
-        		/*Le Spinner a besoin d'un adapter pour sa presentation alors on lui passe le context(this) et
-                un fichier de presentation par défaut( android.R.layout.simple_spinner_item)
-		Avec la liste des elements (exemple) */
-        ArrayAdapter adapter = new ArrayAdapter(
-                this,
-                android.R.layout.simple_spinner_item,
-                exemple
-        );
-        /* On definit une présentation du spinner quand il est déroulé         (android.R.layout.simple_spinner_dropdown_item) */
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        final ListesDataSource listesDataSource = new ListesDataSource(this);
+        listesDataSource.open();
 
+        //listesDataSource.getDatabase().execSQL("DELETE FROM " + MySQLiteHelper.TABLE_LISTES);
 
-        //Enfin on passe l'adapter au Spinner et c'est tout
-        spinner_liste.setAdapter(adapter);
+        //listesDataSource.createListe("ma liste 1");
 
-        spinner_liste.setPrompt("Selectionnez une liste");
+        List<Liste> listValuesListes = listesDataSource.getAllListes("");
 
-        spinner_liste.setSelection(listeid.intValue(),true);
-
-        //SpinnerListeListener OnItemSelectedListener
-        spinner_liste.setOnItemSelectedListener(new SpinnerListeListener()
+        for (Liste lst : listValuesListes)
         {
-            @Override
-            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id)
-            {
+            exemple.add(lst.getLibelle());
 
-                ParamDataSource pdts = new ParamDataSource(selectedItemView.getContext());
-                pdts.open();
-                //MySQLiteHelper.PARAM_COLUMN_LISTEENCOURS
+        }
+        listesDataSource.close();
+        */
 
-                Param param=pdts.LectureParam();
 
-               //Log.v("MAIN ONITEMSELECTED","141 listeid="+id);
-                if(id!=-1)
-                {
-                    param.setListeencours(id);
 
-                    pdts.updateParam(param);
 
-                    pdts.close();
 
-                   //Log.v("MAINACT","131, LISTE SELECTIONNEE ID="+id);
-
-                    AfficheArticles();
-
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parentView)
-            {
-            }
-        });
 
         /*
             Selection Famille
@@ -174,8 +148,6 @@ public class MainActivity extends AppCompatActivity
         //Enfin on passe l'adapter au Spinner et c'est tout
        // spinner_famille.setAdapter(adapter);
         spinner_famille.setAdapter(myAdapter);
-
-
 
         spinner_famille.setPrompt("Selectionnez une Famille");
         spinner_famille.setOnItemSelectedListener(new OnItemSelectedListener()
@@ -341,7 +313,7 @@ public class MainActivity extends AppCompatActivity
 
         Long listeid=nParam.getListeEnCours();
 
-        Log.v("MAIN","344 MODEENCOURS >"+modeEnCours+" FAMILLE="+idfamille+" LISTEID="+listeid);
+        //Log.v("MAIN","344 MODEENCOURS >"+modeEnCours+" FAMILLE="+idfamille+" LISTEID="+listeid);
 
         //Param oParam=mysqlhlpr.MiseAJourParam(context,dtsparam.getDatabase(),false,MySQLiteHelper.PARAM_MAJ_CTRLMODE,nParam);
 
@@ -1070,6 +1042,11 @@ public class MainActivity extends AppCompatActivity
 
                 }
 
+            } else if (id == R.id.nav_managelistes) {
+
+                final Intent intent = new Intent(MainActivity.this, Listes.class);
+                startActivity(intent);
+                AfficheListes(Long.valueOf(0));
 
             } else if (id == R.id.nav_managearticles) {
                 /*
@@ -1378,6 +1355,85 @@ public class MainActivity extends AppCompatActivity
         adb.show();
 
     }
+    private void AfficheListes(Long listeid)
+    {
+        Spinner spinner_liste = (Spinner) findViewById(R.id.spinner_liste);
+
+        List exemple = new ArrayList();
+
+        exemple.add("Choisir liste");
+
+        final ListesDataSource listesDataSource = new ListesDataSource(this);
+        listesDataSource.open();
+
+        //listesDataSource.getDatabase().execSQL("DELETE FROM " + MySQLiteHelper.TABLE_LISTES);
+
+        //listesDataSource.createListe("ma liste 1");
+
+        List<Liste> listValuesListes = listesDataSource.getAllListes("");
+
+        for (Liste lst : listValuesListes)
+        {
+            exemple.add(lst.getLibelle());
+
+        }
+        listesDataSource.close();
+
+                		/*Le Spinner a besoin d'un adapter pour sa presentation alors on lui passe le context(this) et
+                un fichier de presentation par défaut( android.R.layout.simple_spinner_item)
+		Avec la liste des elements (exemple) */
+        ArrayAdapter adapter = new ArrayAdapter(
+                this,
+                android.R.layout.simple_spinner_item,
+                exemple
+        );
+
+                /* On definit une présentation du spinner quand il est déroulé         (android.R.layout.simple_spinner_dropdown_item) */
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+
+        //Enfin on passe l'adapter au Spinner et c'est tout
+        spinner_liste.setAdapter(adapter);
+
+        spinner_liste.setPrompt("Selectionnez une liste");
+
+        spinner_liste.setSelection(listeid.intValue(),true);
+
+        //SpinnerListeListener OnItemSelectedListener
+        spinner_liste.setOnItemSelectedListener(new SpinnerListeListener()
+        {
+            @Override
+            public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position, long id)
+            {
+
+                ParamDataSource pdts = new ParamDataSource(selectedItemView.getContext());
+                pdts.open();
+                //MySQLiteHelper.PARAM_COLUMN_LISTEENCOURS
+
+                Param param=pdts.LectureParam();
+
+                //Log.v("MAIN ONITEMSELECTED","141 listeid="+id);
+                if(id!=-1)
+                {
+                    param.setListeencours(id);
+
+                    pdts.updateParam(param);
+
+                    pdts.close();
+
+                    //Log.v("MAINACT","131, LISTE SELECTIONNEE ID="+id);
+
+                    AfficheArticles();
+
+                }
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parentView)
+            {
+            }
+        });
+
+    }
 }
 
 class SpinnerListeListener implements OnItemSelectedListener, OnItemClickListener {
@@ -1385,12 +1441,8 @@ class SpinnerListeListener implements OnItemSelectedListener, OnItemClickListene
     @Override
     public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
 
-
         //Spinner spinner_liste = (Spinner) findViewById(R.id.spinner_liste);
         //Long listeid=spinner_liste.getSelectedItemId();
-
-
-
        //Log.v("MAINONITEMCLICK","LISTE 170");
 
     }
@@ -1428,4 +1480,6 @@ class SpinnerFamilleListener implements OnItemSelectedListener, OnItemClickListe
     public void onNothingSelected(AdapterView<?> adapterView) {
 
     }
+
+
 }

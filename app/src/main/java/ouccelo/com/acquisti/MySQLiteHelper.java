@@ -78,6 +78,9 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
 
     public static final String TABLE_FAMILLES = "familles";
 
+    public static final String TABLE_LISTES = "listes";
+    public static final String COLUMN_LIB_LISTE = "libelle";
+
     //TABLE_PARAM
     /*
     champ filtresurliste active
@@ -94,20 +97,44 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
             + PARAM_COLUMN_MODEENCOURS + " text not null,"
             + PARAM_COLUMN_MODECONTROLE + " LONG DEFAULT 0,"
             + PARAM_COLUMN_LISTEENCOURS + " LONG DEFAULT 0,"
-            + PARAM_COLUMN_FAMENCOURS + " LONG DEFAULT 0"
+            + PARAM_COLUMN_FAMENCOURS + " LONG DEFAULT 0,"
+            + COLUMN_PARRECOVOVALE + " INTEGER DEFAULT 0,"
+            + COLUMN_PARGESTFAMILLE + " INTEGER DEFAULT 0,"
+            + COLUMN_PARSAISIEMANUELLE + " INTEGER DEFAULT 0,"
+            + COLUMN_PARSAISIEMANPROD + " INTEGER DEFAULT 0,"
+            + COLUMN_PARSAISIEMANFAM + " INTEGER DEFAULT 0,"
+            + COLUMN_PARGESTARTDETAILLEE + " INTEGER DEFAULT 0,"
+            + COLUMN_PARGESTARTQTE + " INTEGER DEFAULT 0,"
+            + COLUMN_PARGESTARTPUHT + " INTEGER DEFAULT 0,"
+            + COLUMN_PARGESTARTTVA + " INTEGER DEFAULT 0,"
+            + COLUMN_PARGESTARTPUTTC + " INTEGER DEFAULT 0,"
+            + COLUMN_PARFILTRELISTE + " INTEGER DEFAULT 0"
             +");";
 	public static final String TABLE_CREATE_ARTICLE = "create table "
 			+ TABLE_ARTICLES + "(" + COLUMN_ID
 			+ " integer primary key autoincrement, "
 			+ COLUMN_LIBELLE + " text not null unique,"
-	        + COLUMN_ID_FAMILLE + " integer not null"
-			+");";
+            + COLUMN_ID_FAMILLE + " integer not null,"
+            + COLUMN_PUHT + " REAL DEFAULT 0,"
+            + COLUMN_TXTVA + " REAL DEFAULT 20.00,"
+            + COLUMN_PUTTC + " REAL DEFAULT 0.00,"
+            + COLUMN_QTE + " REAL DEFAULT 0,"
+            + COLUMN_DSLISTE + " INTEGER DEFAULT 0,"
+            + COLUMN_DSACHATS + " INTEGER DEFAULT 0,"
+            + COLUMN_IMG + " BLOB DEFAULT NULL"
+    +");";
 
-	public static final String TABLE_CREATE_FAMILLE = "create table "
-			+ TABLE_FAMILLES + "(" + COLUMN_ID
-			+ " integer primary key autoincrement, "
-			+ COLUMN_LIBELLE + " text not null unique"
-			+");";
+    public static final String TABLE_CREATE_FAMILLE = "create table "
+            + TABLE_FAMILLES + "(" + COLUMN_ID
+            + " integer primary key autoincrement, "
+            + COLUMN_LIBELLE + " text not null unique"
+            +");";
+
+    public static final String TABLE_CREATE_LISTES = "create table "
+            + TABLE_LISTES + "(" + COLUMN_ID
+            + " integer primary key autoincrement, "
+            + COLUMN_LIB_LISTE + " text not null unique"
+            +");";
 
 
 	public MySQLiteHelper(Context context) {
@@ -137,136 +164,39 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
     {
       //Log.v("MYSQLHELPER","CTRLVERSIONBD,138");
         //Log.d("MYSQLHELPER"," RECHERCHE "+TABLE_PARAM);
+
         /*
+        db.execSQL("DROP TABLE IF EXISTS " + MySQLiteHelper.TABLE_ARTICLES);
+        db.execSQL("DROP TABLE IF EXISTS " + MySQLiteHelper.TABLE_FAMILLES);
+        db.execSQL("DROP TABLE IF EXISTS " + MySQLiteHelper.TABLE_LISTES);
 
-       /*
 
 
-        *
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_PARAM);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARTICLES);
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAMILLES);
-        db.execSQL(MySQLiteHelper.TABLE_CREATE_PARAM);
-        db.execSQL(MySQLiteHelper.TABLE_CREATE_ARTICLE);
-        db.execSQL(MySQLiteHelper.TABLE_CREATE_FAMILLE);
-        */
-      //Log.d("MYSQLHELPER"," 145");
-
-        int vbd=0;
-        Long idparam= Long.valueOf(0);
-
-        Param newParam = new Param();
-
+        db.execSQL("DROP TABLE IF EXISTS " + MySQLiteHelper.TABLE_PARAM);
+        db.execSQL("DROP TABLE IF EXISTS " + MySQLiteHelper.TABLE_ARTICLES);
+        db.execSQL("DROP TABLE IF EXISTS " + MySQLiteHelper.TABLE_FAMILLES);
+        db.execSQL("DROP TABLE IF EXISTS " + MySQLiteHelper.TABLE_LISTES);
         try {
-
-//MySQLiteHelper.PARAM_COLUMN_MODEENCOURS,MySQLiteHelper.PARAM_COLUMN_MODECONTROLE
-
-            String[] allColumns = { MySQLiteHelper.COLUMN_ID,
-                    MySQLiteHelper.PARAM_COLUMN_VBD };
-
-
-            Cursor cursor = db.query(MySQLiteHelper.TABLE_PARAM,
-                    allColumns, null, null,
-                    null, null, null);
-
-
-            int nbc=cursor.getCount();
-          //Log.d("RECH_TABLE_PARAM1","166 LECTURE "+TABLE_PARAM+" COUNT ="+nbc);
-
-            int derniereversionbd;
-
-            derniereversionbd=6;
-
-            if(nbc>0)
-            {
-                cursor.moveToFirst();
-
-                vbd=cursor.getInt(1);
-                //Log.v("MYSQLHELPER","MYSQLHELPER,212 VERSION BASE DE DONNÉES"+vbd);
-
-                //for(int l=0; l<=5; l++){
-                for(int version=vbd; version<=derniereversionbd; version++){
-                    //Log.v("MYSQLHELPER","MYSQLHELPER,215 VERSION BASE DE DONNÉES"+version);
-                    this.majBaseDeDonnees(context,db,version);
-
-                }
-            }else{
-
-              //Log.d("RECH_TABLE_PARAM1"," 185 LECTURE NBC=0");
-
-                vbd=1;
-
-                // createParam
-                ParamDataSource pds = new ParamDataSource(context);
-              //Log.d("RECH_TABLE_PARAM1"," 191");
-
-                pds.open();
-              Log.d("RECH_TABLE_PARAM1"," 194");
-                newParam=pds.createParam(vbd,MySQLiteHelper.PARAM_MODEENCOURS_LISTE,0);
-              Log.d("RECH_TABLE_PARAM1"," 196");
-
-                pds.close();
-
-                for(int version=vbd; version<=derniereversionbd; version++){
-                   //Log.v("MYSQLHELPER","MYSQLHELPER,179 VERSION BASE DE DONNÉES"+version);
-                    this.majBaseDeDonnees(context,db,version);
-                }
-
-
-            }
-
-            cursor.close();
-
-            //Log.d("RECH_TABLE_PARAM1"," RECHERCHE  1 ID PARAM = "+idparam.toString());
-
-        }catch (SQLiteException e)//Exception
+            db.execSQL(MySQLiteHelper.TABLE_CREATE_PARAM);
+            db.execSQL(MySQLiteHelper.TABLE_CREATE_ARTICLE);
+            db.execSQL(MySQLiteHelper.TABLE_CREATE_FAMILLE);
+            db.execSQL(MySQLiteHelper.TABLE_CREATE_LISTES);
+        }catch (SQLiteException e)
         {
-          //Log.v("RECH_TABLE_PARAM1","ERREUR 243 ");
+            Log.d("MYSQLHELPER"," PB LORS DE LA CREATION BD "+e.getMessage());
 
-            //db.execSQL("DROP TABLE IF EXISTS " + TABLE_PARAM);
-
-            //db.execSQL(TABLE_CREATE_PARAM);
-
-            //Log.v("MYSQLHELPER TABLE_CREATE_PARAM",TABLE_CREATE_PARAM);
-
-            this.majBaseDeDonnees(context,db,1);
-            this.majBaseDeDonnees(context,db,2);
-            this.majBaseDeDonnees(context,db,3);
-            this.majBaseDeDonnees(context,db,4);
-            this.majBaseDeDonnees(context,db,5);
-            this.majBaseDeDonnees(context,db,6);
-
-            //Log.d("CtrlVBD","333");
-
-
-            //String smode=PARAM_MODEENCOURS_LISTE;
-
-            //Param nparam = new Param(0,versionBd,smode);
-
-            //Log.d("ERREURCONTROLEVERSIONBD"," ERREURSTRING  "+e.toString()+" CAUSE "+e.getCause());
-            //Log.d("ERREURCONTROLEVERSIONBD"," RECHERCHE  "+e.getMessage());
-/**/
-
-
-           // newParam.setversionBd(1);
-            vbd=1;
-           // newParam.setModeencours(MySQLiteHelper.PARAM_MODEENCOURS_LISTE);
-
-            ParamDataSource pds = new ParamDataSource(context);
-            pds.open();
-            //Log.v("MYSQLHELPER"," 416");
-            newParam=pds.createParam(vbd,MySQLiteHelper.PARAM_MODEENCOURS_LISTE,0);
-            //Log.v("MYSQLHELPER"," 418");
-
-            /* idparam=newParam.getId(); */
-
-            //Log.d("ERREURCONTROLEVERSIONBD",TABLE_CREATE_PARAM+" IDPARAM="+idparam);
-
-            pds.close();
+        }finally {
+            Log.d("MYSQLHELPER"," CREATION BD EFFECTUEE");
 
         }
 
-       //Log.v("RECH_TABLE_PARAM2"," 316, RECHERCHE  2 VERSION BASE DE DONNEES "+vbd);
+        */
+
+        int vbd=7;
+        Long idparam= Long.valueOf(0);
+
+        Param newParam = new Param();
+        int derniereversionbd;
 
         return vbd;
     }
@@ -280,21 +210,16 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
         switch (version)
         {
             case 1://
+                //TABLE_CREATE_ARTICLE
                 this.MiseAJourParamVersionBase(context,db,1);
                 break;
             case 2:/* ajout champ COLUMN_IMG à la TABLE_ARTICLES*/
-
+/*
                 String sql = "ALTER TABLE "+TABLE_ARTICLES+" ADD COLUMN "+COLUMN_IMG+" BLOB DEFAULT NULL;";
                //Log.v("majBaseDeDonnees", "336 SQL >"+sql);
 
                 try {
                     db.execSQL(sql);
-                    /*
-                    openDB.execSQL("ALTER TABLE favs" + " DROP COLUMN favsCount");
-                     */
-                    sql = "ALTER TABLE "+TABLE_ARTICLES+" DROP COLUMN "+COLUMN_IMG+";";
-                    //Log.v("majBaseDeDonnees", "344 SQL >"+sql);
-                    //db.execSQL(sql);
 
                 }catch (SQLiteException e)
                 {
@@ -303,7 +228,7 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
                 }
 
                 this.MiseAJourParamVersionBase(context,db,2);
-
+*/
                 /*
                 ParamDataSource pds = new ParamDataSource(context);
                 pds.open();
@@ -381,6 +306,8 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
                 String sqlart5 ="ALTER TABLE "+TABLE_ARTICLES+" ADD COLUMN "+COLUMN_DSLISTE+" INTEGER DEFAULT 0;";
                 String sqlart6 ="ALTER TABLE "+TABLE_ARTICLES+" ADD COLUMN "+COLUMN_DSACHATS+" INTEGER DEFAULT 0;";
 
+                String sqlart7 = "ALTER TABLE "+TABLE_ARTICLES+" ADD COLUMN "+COLUMN_IMG+" BLOB DEFAULT NULL;";
+
                 //String sqlparam= "ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+PARAM_COLUMN_MODECONTROLE+" INTEGER DEFAULT 0";
                 //String sqlparam2 = "ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+PARAM_COLUMN_LISTEENCOURS+" STRING DEFAULT '';";
 
@@ -430,10 +357,14 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
                 {
                    //Log.v("MYSQLHELPER","ERROR LIGNE 489 "+e.getMessage());
                 }
+                this.MiseAJourParamVersionBase(context,db,3);
 
                 break;
             case 4:
-               String sqlparam= "ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+PARAM_COLUMN_FAMENCOURS+" LONG DEFAULT 0;";
+               //String sqlparam= "ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+PARAM_COLUMN_FAMENCOURS+" LONG DEFAULT 0;";
+
+                //Log.d("MAJVBD 4"," TRAITEMENT MISE A JOUR VERSION BD VERSION="+sqlparam);
+/*
                 try {
                     //db.execSQL(sqlparam);
                     //Toast.makeText(context,sqlparam,Toast.LENGTH_LONG).show();
@@ -442,15 +373,21 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
                     //db.execSQL(sqlalterart);
                     //db.execSQL(sqlalterparam);
 
-                    this.MiseAJourParamVersionBase(context,db,4);
-
 
                 }catch (SQLiteException e)
                 {
-                    //Log.d("ERREUR MAJVBD",e.getMessage().toString());
+                    Log.d("FINALLY MAJVBD 4","FINALLY MISE A JOUR VERSION BD VERSION="+e.getMessage()+" >"+sqlparam+"<");
+
+                }finally {
+                    Log.d("FINALLY MAJVBD 4","FINALLY MISE A JOUR VERSION BD VERSION="+version);
 
                 }
+                this.MiseAJourParamVersionBase(context,db,4);
+*/
+                break;
+
             case 5:
+                /*
                 int imaj=1;
                 String sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARRECOVOVALE+" REAL DEFAULT 0;";
 
@@ -459,41 +396,41 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
                    //Log.d("MAJVBD "+imaj,sqlparam1);
                     imaj++;
 
-                    sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARGESTFAMILLE+" REAL DEFAULT 0;";
-                    db.execSQL(sqlparam1);
-                    imaj++;
+                    //sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARGESTFAMILLE+" REAL DEFAULT 0;";
+                    //db.execSQL(sqlparam1);
+                    //imaj++;
 
-                    sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARSAISIEMANUELLE+" REAL DEFAULT 0;";
-                    db.execSQL(sqlparam1);
-                    imaj++;
+                    //sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARSAISIEMANUELLE+" REAL DEFAULT 0;";
+                    //db.execSQL(sqlparam1);
+                    //imaj++;
 
-                    sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARSAISIEMANPROD+" REAL DEFAULT 0;";
-                    db.execSQL(sqlparam1);
-                    imaj++;
+                    //sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARSAISIEMANPROD+" REAL DEFAULT 0;";
+                    //db.execSQL(sqlparam1);
+                    //imaj++;
 
-                    sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARSAISIEMANFAM+" REAL DEFAULT 0;";
-                    db.execSQL(sqlparam1);
-                    imaj++;
+                    //sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARSAISIEMANFAM+" REAL DEFAULT 0;";
+                    //db.execSQL(sqlparam1);
+                    //imaj++;
 
-                    sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARGESTARTDETAILLEE+" REAL DEFAULT 0;";
-                    db.execSQL(sqlparam1);
-                    imaj++;
+                    //sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARGESTARTDETAILLEE+" REAL DEFAULT 0;";
+                    //db.execSQL(sqlparam1);
+                    //imaj++;
 
-                    sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARGESTARTQTE+" REAL DEFAULT 0;";
-                    db.execSQL(sqlparam1);
-                    imaj++;
+                    //sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARGESTARTQTE+" REAL DEFAULT 0;";
+                    //db.execSQL(sqlparam1);
+                    //imaj++;
 
-                    sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARGESTARTPUHT+" REAL DEFAULT 0;";
-                    db.execSQL(sqlparam1);
-                    imaj++;
+                    //sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARGESTARTPUHT+" REAL DEFAULT 0;";
+                   // db.execSQL(sqlparam1);
+                    //imaj++;
 
-                    sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARGESTARTTVA+" REAL DEFAULT 0;";
-                    db.execSQL(sqlparam1);
-                    imaj++;
+                    //sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARGESTARTTVA+" REAL DEFAULT 0;";
+                    //db.execSQL(sqlparam1);
+                    //imaj++;
 
-                    sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARGESTARTPUTTC+" REAL DEFAULT 0;";
-                    db.execSQL(sqlparam1);
-                    imaj++;
+                    //sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARGESTARTPUTTC+" REAL DEFAULT 0;";
+                    //db.execSQL(sqlparam1);
+                    //imaj++;
 
                 }catch (SQLiteException e)
                 {
@@ -502,18 +439,16 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
                 }finally {
                    //Log.d("FINALLY MAJVBD 5","FINALLY MISE A JOUR VERSION BD VERSION="+version);
 
-                }
 
 
-
-
-                this.MiseAJourParamVersionBase(context,db,version+1);
+                this.MiseAJourParamVersionBase(context,db,5);
 
                 Log.d("FINALLY MAJVBD 5","FIN TRAITEMENT MISE A JOUR VERSION BD VERSION="+version);
+                 }*/
                 break;
             case 6:
                 //
-
+/*
                 sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARFILTRELISTE+" INTEGER DEFAULT 0;";
 
                 try {
@@ -529,13 +464,35 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
                 }
                 Log.d("FINALLY MAJVBD 6","FIN TRAITEMENT MISE A JOUR VERSION BD VERSION="+version);
 
-                this.MiseAJourParamVersionBase(context,db,version+1);
+                //this.MiseAJourParamVersionBase(context,db,version+1);
+                */
+
+
+                break;
+            case 7:
 
 
                 break;
             default:
                 break;
         }
+
+        try {
+            db.execSQL("DROP TABLE IF EXISTS " + MySQLiteHelper.TABLE_LISTES);
+            db.execSQL(MySQLiteHelper.TABLE_CREATE_LISTES);
+
+        }catch (SQLiteException e)
+        {
+            Log.d("ERREUR MAJVBD 7 ",""+e.getMessage().toString()+" version="+version);
+
+        }finally {
+            Log.d("FINALLY MAJVBD 7","FINALLY MISE A JOUR VERSION BD VERSION="+version);
+
+        }
+        Log.d("FINALLY MAJVBD 7","FIN TRAITEMENT MISE A JOUR VERSION BD VERSION="+version);
+
+        this.MiseAJourParamVersionBase(context,db,7);
+
        //Log.v("MYSQLHELPER MAJBD", "MYSQLHELPER,488");
     }
 
@@ -549,22 +506,66 @@ Gestion du Prix Ttc 		OptionGestionArticlePuttc
        // String[] allColumns = { MySQLiteHelper.COLUMN_ID,
         //        MySQLiteHelper.PARAM_COLUMN_VBD,MySQLiteHelper.PARAM_COLUMN_MODEENCOURS };
 
-        String[] allColumns = { MySQLiteHelper.COLUMN_ID,
+        String[] allColumns0 = { MySQLiteHelper.COLUMN_ID,
+                MySQLiteHelper.PARAM_COLUMN_VBD
+                ,MySQLiteHelper.PARAM_COLUMN_MODEENCOURS
+                ,MySQLiteHelper.PARAM_COLUMN_MODECONTROLE
+                ,MySQLiteHelper.PARAM_COLUMN_LISTEENCOURS
+                ,MySQLiteHelper.PARAM_COLUMN_FAMENCOURS
+
+        };
+
+        String[] allColumns1 = { MySQLiteHelper.COLUMN_ID,
                 MySQLiteHelper.PARAM_COLUMN_VBD
                 ,MySQLiteHelper.PARAM_COLUMN_MODEENCOURS
                 ,MySQLiteHelper.PARAM_COLUMN_MODECONTROLE
                 ,MySQLiteHelper.PARAM_COLUMN_LISTEENCOURS
                 ,MySQLiteHelper.PARAM_COLUMN_FAMENCOURS
                 ,MySQLiteHelper.COLUMN_PARGESTARTPUTTC
-                ,MySQLiteHelper.COLUMN_PARFILTRELISTE
+
         };
-if(version>4)
-{
-    allColumns=pds.allColumns;
 
-}
+        String[] allColumns = {MySQLiteHelper.COLUMN_ID,
+                MySQLiteHelper.PARAM_COLUMN_VBD
+                , MySQLiteHelper.PARAM_COLUMN_MODEENCOURS
+                , MySQLiteHelper.PARAM_COLUMN_MODECONTROLE
+                , MySQLiteHelper.PARAM_COLUMN_LISTEENCOURS
+                , MySQLiteHelper.PARAM_COLUMN_FAMENCOURS
+                , MySQLiteHelper.COLUMN_PARGESTARTPUTTC
+                , MySQLiteHelper.COLUMN_PARFILTRELISTE
+        };
 
-        Log.v("MYSQLHELPER", "MYSQLHELPER,543");
+        if(version==1)
+        {
+            allColumns=allColumns0;
+        }
+        if(version>4)
+        {
+            allColumns=allColumns1;
+
+            if(version==5)
+            {
+                allColumns=allColumns1;
+            }
+            if(version==6)
+            {
+                //                sqlparam1 ="ALTER TABLE "+TABLE_PARAM+" ADD COLUMN "+COLUMN_PARFILTRELISTE+" INTEGER DEFAULT 0;";
+
+               int z=0;
+            }
+            if(version>6)
+            {
+                allColumns=pds.allColumns;
+            }
+        }else
+        {
+            allColumns=allColumns0;
+
+        }
+
+        allColumns=pds.allColumns;
+
+        Log.v("MYSQLHELPER", "MYSQLHELPER,619 version="+version);
 
         //db.query(TABLE_ARTICLES,allColumns,"",allColumns,"","","");
 
@@ -578,6 +579,7 @@ if(version>4)
         if(nbc>0)
         {
             cursor.moveToFirst();
+            Log.v("MYSQLHELPER", "MYSQLHELPER, 634 version="+version);
 
             param = pds.cursorToParam(cursor);
 
@@ -627,12 +629,15 @@ if(version>4)
         db.execSQL(TABLE_CREATE_PARAM);
         db.execSQL(TABLE_CREATE_ARTICLE);
         db.execSQL(TABLE_CREATE_FAMILLE);
+        db.execSQL(TABLE_CREATE_LISTES);
     }
 
     public void dropDb(SQLiteDatabase db)
     {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_PARAM);
+        Log.v("DROPDATABASE"," >"+TABLE_PARAM+" DELETE ");
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_ARTICLES);
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_FAMILLES);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_LISTES);
     }
 }

@@ -102,6 +102,7 @@ public class Param {
 
     public void setBrecovocale(boolean bctrl)
     {
+
         this.brecovocale=bctrl;
     }
     public boolean getBrecovocale()
@@ -115,11 +116,11 @@ public class Param {
     {
         if(bctrl)
         {
-            //Log.v("PARAMETRE 114"," SAISIE MANUELLE OUI");
+            Log.v("PARAMETRE 114"," SAISIE MANUELLE OUI");
 
         }else
         {
-            //Log.v("PARAMETRE 118"," SAISIE MANUELLE NON");
+            Log.v("PARAMETRE 118"," SAISIE MANUELLE NON");
 
         }
 

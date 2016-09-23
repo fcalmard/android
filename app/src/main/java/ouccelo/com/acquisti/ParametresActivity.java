@@ -82,6 +82,7 @@ public class ParametresActivity extends AppCompatActivity {
         param.setBgestfamart(checkBox.isChecked());
 
         checkBox = (CheckBox) findViewById(R.id.optsaisiemanuelle);
+        Log.v("PARAM ACTIVITY"," isChecked="+checkBox.isChecked());
         param.setBsaisiemanuelle(checkBox.isChecked());
 
         checkBox = (CheckBox) findViewById(R.id.optsaismanart);

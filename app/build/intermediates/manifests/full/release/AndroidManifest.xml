@@ -47,6 +47,11 @@
             android:value="@integer/google_play_services_version" />
 
         <activity android:name="ouccelo.com.acquisti.ParametresActivity" />
+        <activity
+            android:name="ouccelo.com.acquisti.Listes"
+            android:label="@string/title_activity_listes"
+            android:parentActivityName="ouccelo.com.acquisti.MainActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
     </application>
 
 </manifest>
