@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/gestart"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/msggestart" />
+        <item
+            android:id="@+id/gestfam"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/msggestfam" />
+        <item
+            android:id="@+id/gestlistes"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/msggestlistes" />
+        <item
+            android:id="@+id/initliste"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/libelle_activity_initlistes" />
+        <item
+            android:id="@+id/initbd"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="@string/libelle_activity_initbd" />
+    </group>
+
+
+</menu>
